@@ -21,7 +21,7 @@ const packageJsonFixture = "./test/fixtures/package.json";
 describe("getFileSha1", () => {
   it("should return the correct SHA1 hash for files", async () => {
     await expect(getFileSha1(packageJsonFixture)).resolves.toBe(
-      "7f227f81613c351d221f8475f969d9ee8d6a295f"
+      "8981bcf45fd7b796e43a96e03e0a83496f2fcbf2"
     );
   });
 

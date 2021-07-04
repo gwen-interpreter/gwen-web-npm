@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "gwen": {
+  "gwenWeb": {
     "version": "2.0.0"
   }
 }

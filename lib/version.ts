@@ -51,8 +51,8 @@ export default async function getDesiredVersion(
     (await fsP.readFile(packageJsonPath)).toString()
   );
 
-  if (packageJson.gwen?.version) {
-    return packageJson.gwen?.version;
+  if (packageJson.gwenWeb?.version) {
+    return packageJson.gwenWeb?.version;
   } else {
     console.log("No version specified, using latest");
     return await getLatestVersion();

@@ -1,7 +1,8 @@
 Gwen-Web NPM Package
 ====================
 
-Easily add [Gwen-Web](https://github.com/gwen-interpreter/gwen-web) to your existing JS projects!
+Easily add [Gwen-Web](https://github.com/gwen-interpreter/gwen-web) to your
+existing JS projects!
 
 Setup
 -----
@@ -26,13 +27,15 @@ pnpm gwen
 
 ### Versions
 
-By default, running the `gwen` script will download and use the latest Gwen-Web
-version. If you want to use a specific version in your project, set the
-`version` field in the `gwen` section of `package.json` to the desired version,
-like so:
+By default, running the `gwen` script will download and use the [latest Gwen-Web
+version](https://github.com/gwen-interpreter/gwen-web/releases/latest). If you
+want to use a [specific
+version](https://github.com/gwen-interpreter/gwen-web/releases) in your project,
+set the `version` field in the `gwenWeb` section of `package.json` to the
+desired version, like so:
 
 ```json
-"gwen": {
+"gwenWeb": {
   "version": "2.52.0"
 }
 ```
