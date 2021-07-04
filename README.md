@@ -1,7 +1,7 @@
 Gwen-Web NPM Package
 ====================
 
-Easily add Gwen-Web to your existing JS projects!
+Easily add [Gwen-Web](https://github.com/gwen-interpreter/gwen-web) to your existing JS projects!
 
 Setup
 -----
