@@ -17,12 +17,10 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: yarn
       - run: yarn test
+      - run: yarn config set 'npmRegistries["//registry.npmjs.org"].npmAuthToken' ${{ secrets.NPM_TOKEN }}
+      - run: yarn config set 'npmRegistries["//npm.pkg.github.org"].npmAuthToken' ${{ secrets.NPM_TOKEN }}
       - run: yarn npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: actions/setup-node@v2
         with:
           registry-url: https://npm.pkg.github.com
       - run: yarn npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
