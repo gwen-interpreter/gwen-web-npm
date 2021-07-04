@@ -6,6 +6,7 @@ existing JS projects!
 
 Setup
 -----
+This package requires Node 14 or newer.
 
 For npm users:
 ```
