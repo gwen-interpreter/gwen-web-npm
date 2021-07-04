@@ -1,0 +1,13 @@
+.eslintignore
+.eslintrc.json
+.gitattributes
+.history
+.husky
+.log
+.prettierignore
+.yarn
+README.md
+jest.config.js
+lib
+test
+tsconfig.json
