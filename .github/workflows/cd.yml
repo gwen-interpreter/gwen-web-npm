@@ -23,6 +23,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           registry-url: https://npm.pkg.github.com
-      - run: yarn config set npmPublishRegistry https://npm.pkg.github.org
+      - run: yarn config set npmPublishRegistry https://npm.pkg.github.com
       - run: yarn config set npmAuthToken ${{ secrets.GITHUB_TOKEN }}
       - run: yarn npm publish --access public
