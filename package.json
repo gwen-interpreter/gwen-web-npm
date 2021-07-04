@@ -7,7 +7,7 @@
   },
   "gwen": {},
   "scripts": {
-    "prepublish": "yarn build",
+    "prepack": "yarn build",
     "build": "tsc",
     "format": "prettier '**/*.ts' --write",
     "lint": "eslint . --ext .ts",
