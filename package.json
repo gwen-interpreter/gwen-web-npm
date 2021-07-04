@@ -5,15 +5,12 @@
   "bin": {
     "gwen": "./bin/gwen.js"
   },
-  "gwen": {},
   "scripts": {
     "build": "tsc",
     "format": "prettier '**/*.ts' --write",
     "lint": "eslint . --ext .ts",
     "test": "jest",
-    "prepack": "pinst --disable && yarn build",
-    "postpack": "pinst --enable",
-    "postinstall": "husky install"
+    "prepack": "yarn build"
   },
   "dependencies": {
     "axios": "^0.21.1",
