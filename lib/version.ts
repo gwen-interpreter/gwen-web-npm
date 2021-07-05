@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import fsP from "fs/promises";
+import { promises as fs } from "fs";
 import axios from "axios";
 import { DOMParser } from "xmldom";
 import xpath from "xpath";
@@ -48,7 +48,7 @@ export default async function getDesiredVersion(
   packageJsonPath = "./package.json"
 ): Promise<string> {
   const packageJson = JSON.parse(
-    (await fsP.readFile(packageJsonPath)).toString()
+    (await fs.readFile(packageJsonPath)).toString()
   );
 
   if (packageJson.gwenWeb?.version) {

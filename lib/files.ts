@@ -15,8 +15,7 @@
  */
 
 import crypto from "crypto";
-import fs from "fs";
-import fsP from "fs/promises";
+import fs, { promises as fsP } from "fs";
 
 export async function getFileSha1(path: string): Promise<string> {
   const stream = fs.createReadStream(path);

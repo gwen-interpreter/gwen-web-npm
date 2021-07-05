@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-import fs from "fs";
-import fsP from "fs/promises";
+import fs, { promises as fsP } from "fs";
 import path from "path";
 import os from "os";
 import axios from "axios";

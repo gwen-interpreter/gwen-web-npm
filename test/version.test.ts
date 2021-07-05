@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import fsP from "fs/promises";
+import { promises as fs } from "fs";
 import { mocked } from "ts-jest/utils";
 import _axios from "axios";
 import getDesiredVersion from "../lib/version";
@@ -30,7 +30,7 @@ describe("getDesiredVersion", () => {
 
   it("should return the latest version from the network", async () => {
     axios.get.mockResolvedValueOnce({
-      data: (await fsP.readFile(metadataFixture)).toString(),
+      data: (await fs.readFile(metadataFixture)).toString(),
     });
 
     await expect(getDesiredVersion()).resolves.toBe("2.52.0");
