@@ -441,30 +441,30 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@gweninterpreter/gwen-web@workspace:."
   dependencies:
-    "@types/decompress": ^4.2.3
-    "@types/eslint": ^7
-    "@types/eslint-plugin-prettier": ^3
-    "@types/jest": ^26.0.23
-    "@types/prettier": ^2
-    "@types/progress": ^2
-    "@types/xmldom": ^0.1.30
+    "@types/decompress": 4.2.3
+    "@types/eslint": 7.2.13
+    "@types/eslint-plugin-prettier": 3.1.0
+    "@types/jest": 26.0.23
+    "@types/prettier": 2.3.1
+    "@types/progress": 2.0.3
+    "@types/xmldom": 0.1.30
     "@typescript-eslint/eslint-plugin": ^4.28.1
     "@typescript-eslint/parser": ^4.28.1
-    axios: ^0.21.1
-    cachedir: ^2.3.0
-    decompress: ^4.2.1
-    eslint: ^7.30.0
-    eslint-config-prettier: ^8.3.0
-    eslint-plugin-jest: ^24.3.6
-    eslint-plugin-prettier: ^3.4.0
-    husky: ^7.0.0
+    axios: 0.21.1
+    cachedir: 2.3.0
+    decompress: 4.2.1
+    eslint: 7.30.0
+    eslint-config-prettier: 8.3.0
+    eslint-plugin-jest: 24.3.6
+    eslint-plugin-prettier: 3.4.0
+    husky: 7.0.0
     jest: ^27.0.6
-    prettier: ^2.3.2
-    progress: ^2.0.3
-    ts-jest: ^27.0.3
-    typescript: ^4.3.5
-    xmldom: ^0.6.0
-    xpath: ^0.0.32
+    prettier: 2.3.2
+    progress: 2.0.3
+    ts-jest: 27.0.3
+    typescript: 4.3.5
+    xmldom: 0.6.0
+    xpath: 0.0.32
   bin:
     gwen: ./bin/gwen.js
   languageName: unknown
@@ -825,7 +825,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/decompress@npm:^4.2.3":
+"@types/decompress@npm:4.2.3":
   version: 4.2.3
   resolution: "@types/decompress@npm:4.2.3"
   dependencies:
@@ -834,7 +834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint-plugin-prettier@npm:^3":
+"@types/eslint-plugin-prettier@npm:3.1.0":
   version: 3.1.0
   resolution: "@types/eslint-plugin-prettier@npm:3.1.0"
   dependencies:
@@ -843,7 +843,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:*, @types/eslint@npm:^7":
+"@types/eslint@npm:*, @types/eslint@npm:7.2.13":
   version: 7.2.13
   resolution: "@types/eslint@npm:7.2.13"
   dependencies:
@@ -894,7 +894,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^26.0.23":
+"@types/jest@npm:26.0.23":
   version: 26.0.23
   resolution: "@types/jest@npm:26.0.23"
   dependencies:
@@ -918,14 +918,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:^2, @types/prettier@npm:^2.1.5":
+"@types/prettier@npm:2.3.1, @types/prettier@npm:^2.1.5":
   version: 2.3.1
   resolution: "@types/prettier@npm:2.3.1"
   checksum: 62ddbb1ba05d0df97fe49536e0d5409ea76d45cd2f6de062ff351d049e667b77010d2e912733d5d3255829fa1958c684a059e619f9d81e2ba9f27a6204a06149
   languageName: node
   linkType: hard
 
-"@types/progress@npm:^2":
+"@types/progress@npm:2.0.3":
   version: 2.0.3
   resolution: "@types/progress@npm:2.0.3"
   dependencies:
@@ -941,7 +941,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/xmldom@npm:^0.1.30":
+"@types/xmldom@npm:0.1.30":
   version: 0.1.30
   resolution: "@types/xmldom@npm:0.1.30"
   checksum: 7b195da37ca63bcba37df495706333ec0bb7232cda5c2c146e27babce0434a0ab1684b0254c9ae6d4c571b18ef1d77b4ec8edc264fd1b7d67db9f85800bf50ba
@@ -1303,7 +1303,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.21.1":
+"axios@npm:0.21.1":
   version: 0.21.1
   resolution: "axios@npm:0.21.1"
   dependencies:
@@ -1545,7 +1545,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cachedir@npm:^2.3.0":
+"cachedir@npm:2.3.0":
   version: 2.3.0
   resolution: "cachedir@npm:2.3.0"
   checksum: 17153ca421c3ba004ab74dda259898ee06b7a8067383f6132350cd42beddae70a2420a9f0a235ec2a6f91f925fe3e52ba9e2bd92adfbf556af7c2e35f88cb786
@@ -1864,7 +1864,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"decompress@npm:^4.2.1":
+"decompress@npm:4.2.1":
   version: 4.2.1
   resolution: "decompress@npm:4.2.1"
   dependencies:
@@ -2079,7 +2079,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.3.0":
+"eslint-config-prettier@npm:8.3.0":
   version: 8.3.0
   resolution: "eslint-config-prettier@npm:8.3.0"
   peerDependencies:
@@ -2090,7 +2090,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^24.3.6":
+"eslint-plugin-jest@npm:24.3.6":
   version: 24.3.6
   resolution: "eslint-plugin-jest@npm:24.3.6"
   dependencies:
@@ -2105,7 +2105,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^3.4.0":
+"eslint-plugin-prettier@npm:3.4.0":
   version: 3.4.0
   resolution: "eslint-plugin-prettier@npm:3.4.0"
   dependencies:
@@ -2164,7 +2164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.30.0":
+"eslint@npm:7.30.0":
   version: 7.30.0
   resolution: "eslint@npm:7.30.0"
   dependencies:
@@ -2726,7 +2726,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"husky@npm:^7.0.0":
+"husky@npm:7.0.0":
   version: 7.0.0
   resolution: "husky@npm:7.0.0"
   bin:
@@ -4257,7 +4257,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.3.2":
+"prettier@npm:2.3.2":
   version: 2.3.2
   resolution: "prettier@npm:2.3.2"
   bin:
@@ -4297,7 +4297,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"progress@npm:^2.0.0, progress@npm:^2.0.3":
+"progress@npm:2.0.3, progress@npm:^2.0.0":
   version: 2.0.3
   resolution: "progress@npm:2.0.3"
   checksum: c46ef5a1de4d527dfd32fe56a7df0c1c8b420a4c02617196813bf7f10ac7c2a929afc265d44fdd68f5c439a7e7cb3d70d569716c82d6b4148ec72089860a1312
@@ -4960,7 +4960,7 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^27.0.3":
+"ts-jest@npm:27.0.3":
   version: 27.0.3
   resolution: "ts-jest@npm:27.0.3"
   dependencies:
@@ -5049,7 +5049,7 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-typescript@^4.3.5:
+typescript@4.3.5:
   version: 4.3.5
   resolution: "typescript@npm:4.3.5"
   bin:
@@ -5059,7 +5059,7 @@ typescript@^4.3.5:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.3.5#builtin<compat/typescript>":
+"typescript@patch:typescript@4.3.5#builtin<compat/typescript>":
   version: 4.3.5
   resolution: "typescript@patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"
   bin:
@@ -5292,14 +5292,14 @@ typescript@^4.3.5:
   languageName: node
   linkType: hard
 
-"xmldom@npm:^0.6.0":
+"xmldom@npm:0.6.0":
   version: 0.6.0
   resolution: "xmldom@npm:0.6.0"
   checksum: cca0cddf6f95e9bfa2432a9a819f97b840e6b36fad8017833f5c7d298b4fd69ef2e3e7b5dd68f1e53ec5dd4075bfc8f68e425b06928adc0a21c9bacf0af02b0c
   languageName: node
   linkType: hard
 
-"xpath@npm:^0.0.32":
+"xpath@npm:0.0.32":
   version: 0.0.32
   resolution: "xpath@npm:0.0.32"
   checksum: 7e87cc83a18497df5db9efa7cfe37036f97f2e35fd3fd4c0ab8695ee6ef930008ba17866226de630ac1c47b7785d318d76cecca975b5818817da3572eeb7e5b0

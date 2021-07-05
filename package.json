@@ -28,31 +28,31 @@
     "prepack": "yarn build"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "cachedir": "^2.3.0",
-    "decompress": "^4.2.1",
-    "progress": "^2.0.3",
-    "xmldom": "^0.6.0",
-    "xpath": "^0.0.32"
+    "axios": "0.21.1",
+    "cachedir": "2.3.0",
+    "decompress": "4.2.1",
+    "progress": "2.0.3",
+    "xmldom": "0.6.0",
+    "xpath": "0.0.32"
   },
   "devDependencies": {
-    "@types/decompress": "^4.2.3",
-    "@types/eslint": "^7",
-    "@types/eslint-plugin-prettier": "^3",
-    "@types/jest": "^26.0.23",
-    "@types/prettier": "^2",
-    "@types/progress": "^2",
-    "@types/xmldom": "^0.1.30",
+    "@types/decompress": "4.2.3",
+    "@types/eslint": "7.2.13",
+    "@types/eslint-plugin-prettier": "3.1.0",
+    "@types/jest": "26.0.23",
+    "@types/prettier": "2.3.1",
+    "@types/progress": "2.0.3",
+    "@types/xmldom": "0.1.30",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
-    "eslint": "^7.30.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jest": "^24.3.6",
-    "eslint-plugin-prettier": "^3.4.0",
-    "husky": "^7.0.0",
+    "eslint": "7.30.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-jest": "24.3.6",
+    "eslint-plugin-prettier": "3.4.0",
+    "husky": "7.0.0",
     "jest": "^27.0.6",
-    "prettier": "^2.3.2",
-    "ts-jest": "^27.0.3",
-    "typescript": "^4.3.5"
+    "prettier": "2.3.2",
+    "ts-jest": "27.0.3",
+    "typescript": "4.3.5"
   }
 }
