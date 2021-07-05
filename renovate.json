@@ -1,0 +1,4 @@
+{
+  "extends": ["config:base"],
+  "ignorePaths": [".yarn/sdks/**/package.json", "test/fixtures/package.json"]
+}
