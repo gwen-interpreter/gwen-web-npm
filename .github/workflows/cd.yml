@@ -8,21 +8,25 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node
+      - name: Pull code
+        uses: actions/checkout@v2
+      - name: Setup Node for NPM publish
         uses: actions/setup-node@v2
         with:
           node-version: 16
           cache: yarn
           registry-url: https://registry.npmjs.org
-      - run: yarn
-      - run: yarn test
-      - run: yarn config set npmPublishRegistry https://registry.npmjs.org
-      - run: yarn config set npmAuthToken ${{ secrets.NPM_TOKEN }}
-      - run: yarn npm publish --access public
-      - uses: actions/setup-node@v2
+      - name: Run tests
+        run: yarn test
+      - name: Configure Yarn for NPM publish
+        run: yarn config set npmPublishRegistry https://registry.npmjs.org && yarn config set npmAuthToken ${{ secrets.NPM_TOKEN }}
+      - name: Publish to NPM
+        run: yarn npm publish --access public
+      - name: Setup Node for Github Packages publish
+        uses: actions/setup-node@v2
         with:
           registry-url: https://npm.pkg.github.com
-      - run: yarn config set npmPublishRegistry https://npm.pkg.github.com
-      - run: yarn config set npmAuthToken ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn npm publish --access public
+      - name: Configure Yarn for Github Packages publish
+        run: yarn config set npmPublishRegistry https://npm.pkg.github.com && yarn config set npmAuthToken ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish to Github Packages
+        run: yarn npm publish --access public
