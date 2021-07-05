@@ -447,7 +447,7 @@ __metadata:
     "@types/jest": 26.0.23
     "@types/prettier": 2.3.1
     "@types/progress": 2.0.3
-    "@types/xmldom": 0.1.30
+    "@types/xmldom": 0.1.31
     "@typescript-eslint/eslint-plugin": 4.28.1
     "@typescript-eslint/parser": 4.28.1
     axios: 0.21.1
@@ -941,10 +941,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/xmldom@npm:0.1.30":
-  version: 0.1.30
-  resolution: "@types/xmldom@npm:0.1.30"
-  checksum: 7b195da37ca63bcba37df495706333ec0bb7232cda5c2c146e27babce0434a0ab1684b0254c9ae6d4c571b18ef1d77b4ec8edc264fd1b7d67db9f85800bf50ba
+"@types/xmldom@npm:0.1.31":
+  version: 0.1.31
+  resolution: "@types/xmldom@npm:0.1.31"
+  checksum: 9218c7896fca328c13687e3561a10dc2862d9e06d37cd1579e56cd1ae0ec7c76a0aba00c80f05d6602d14cf69d12ab86ecac9f1c08ebd6b60cf64c03084c8941
   languageName: node
   linkType: hard
 
