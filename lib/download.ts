@@ -46,7 +46,7 @@ function getDownloadUrl(version: string): string {
   }
 }
 
-export async function startDownload(version: string): Promise<Result> {
+async function startDownload(version: string): Promise<Result> {
   if (await fileExists(path.join(storedVersionPath, `gwen-web-${version}`))) {
     return {
       status: "done",
@@ -113,7 +113,7 @@ export async function startDownload(version: string): Promise<Result> {
   }
 }
 
-export async function extractZip(info: Result): Promise<Result> {
+async function extractZip(info: Result): Promise<Result> {
   if (info.status !== "downloaded") return info;
   console.log(`Extracting...`);
 
