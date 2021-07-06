@@ -94,7 +94,12 @@ export async function startDownload(version: string): Promise<Result> {
       zipPath: downloadLocation,
     };
   } catch (e) {
-    if (e.response || e.request || !e.code) {
+    if (e.response && e.response.status === 404) {
+      return {
+        status: "error",
+        message: `Gwen-Web v${version} doesn't exist. Check your version in package.json and try again.`,
+      };
+    } else if (e.response || e.request || !e.code) {
       return {
         status: "error",
         message: `Failed downloading Gwen-Web v${version}. Check your internet connection and try again.`,
