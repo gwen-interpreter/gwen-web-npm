@@ -26,6 +26,15 @@ export async function run(): Promise<void> {
     const scriptName =
       process.platform === "win32" ? "gwen-web.bat" : "gwen-web";
     const version = await getDesiredVersion();
+    const gwenArgs = process.argv.splice(2);
+
+    const majorVersion = parseInt(version.charAt(0));
+    if (gwenArgs.includes("init") && majorVersion < 3) {
+      console.log(
+        'The "init" command is only supported on Gwen-Web v3.0.0 and higher.'
+      );
+      process.exit(1);
+    }
 
     const pathToScript = path.join(
       cachedir("gwen-web"),
@@ -38,13 +47,9 @@ export async function run(): Promise<void> {
       await downloadGwenWeb(version);
     }
 
-    const gwenProcess = childProcess.spawn(
-      pathToScript,
-      process.argv.splice(2),
-      {
-        shell: true,
-      }
-    );
+    const gwenProcess = childProcess.spawn(pathToScript, gwenArgs, {
+      shell: true,
+    });
 
     gwenProcess.stdout.pipe(process.stdout);
     gwenProcess.stderr.pipe(process.stderr);
