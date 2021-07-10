@@ -446,7 +446,7 @@ __metadata:
     "@types/eslint-plugin-prettier": 3.1.0
     "@types/jest": 26.0.24
     "@types/prettier": 2.3.2
-    "@types/progress": 2.0.3
+    "@types/progress": 2.0.4
     "@types/xmldom": 0.1.31
     "@typescript-eslint/eslint-plugin": 4.28.2
     "@typescript-eslint/parser": 4.28.2
@@ -942,12 +942,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/progress@npm:2.0.3":
-  version: 2.0.3
-  resolution: "@types/progress@npm:2.0.3"
+"@types/progress@npm:2.0.4":
+  version: 2.0.4
+  resolution: "@types/progress@npm:2.0.4"
   dependencies:
     "@types/node": "*"
-  checksum: b221d95b40f8fade9a512b04a064571b2b35b3d4928e4d583f10bacf083d55c1400f87b5e260bd40abb74ed6b9cd4b7cea21cc8227bc219ef3f98490e511089f
+  checksum: 03a4dbe701581ba3b49be8d57afb14ea96256dae137117167d95f0d4a8b2c57184a903071ae98c18e5f0eb335ecbd02bee436ce158e975da87360ca39326f0ab
   languageName: node
   linkType: hard
 
