@@ -37,7 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["@types/decompress", "npm:4.2.3"],
+            ["@types/decompress", "npm:4.2.4"],
             ["@types/eslint", "npm:7.2.14"],
             ["@types/eslint-plugin-prettier", "npm:3.1.0"],
             ["@types/jest", "npm:26.0.23"],
@@ -867,7 +867,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@gweninterpreter/gwen-web", "workspace:."],
-            ["@types/decompress", "npm:4.2.3"],
+            ["@types/decompress", "npm:4.2.4"],
             ["@types/eslint", "npm:7.2.14"],
             ["@types/eslint-plugin-prettier", "npm:3.1.0"],
             ["@types/jest", "npm:26.0.23"],
@@ -1296,10 +1296,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/decompress", [
-        ["npm:4.2.3", {
-          "packageLocation": "./.yarn/cache/@types-decompress-npm-4.2.3-a952d4f7ff-1b5f654945.zip/node_modules/@types/decompress/",
+        ["npm:4.2.4", {
+          "packageLocation": "./.yarn/cache/@types-decompress-npm-4.2.4-b2bc0638c0-a20668023e.zip/node_modules/@types/decompress/",
           "packageDependencies": [
-            ["@types/decompress", "npm:4.2.3"],
+            ["@types/decompress", "npm:4.2.4"],
             ["@types/node", "npm:15.12.4"]
           ],
           "linkType": "HARD",
