@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/eslint", "npm:7.2.14"],
             ["@types/eslint-plugin-prettier", "npm:3.1.0"],
             ["@types/jest", "npm:26.0.24"],
-            ["@types/prettier", "npm:2.3.1"],
+            ["@types/prettier", "npm:2.3.2"],
             ["@types/progress", "npm:2.0.3"],
             ["@types/xmldom", "npm:0.1.31"],
             ["@typescript-eslint/eslint-plugin", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:4.28.2"],
@@ -871,7 +871,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/eslint", "npm:7.2.14"],
             ["@types/eslint-plugin-prettier", "npm:3.1.0"],
             ["@types/jest", "npm:26.0.24"],
-            ["@types/prettier", "npm:2.3.1"],
+            ["@types/prettier", "npm:2.3.2"],
             ["@types/progress", "npm:2.0.3"],
             ["@types/xmldom", "npm:0.1.31"],
             ["@typescript-eslint/eslint-plugin", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:4.28.2"],
@@ -1417,6 +1417,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-prettier-npm-2.3.1-5cd0b36ccf-62ddbb1ba0.zip/node_modules/@types/prettier/",
           "packageDependencies": [
             ["@types/prettier", "npm:2.3.1"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:2.3.2", {
+          "packageLocation": "./.yarn/cache/@types-prettier-npm-2.3.2-377cc404e1-7b425386aa.zip/node_modules/@types/prettier/",
+          "packageDependencies": [
+            ["@types/prettier", "npm:2.3.2"]
           ],
           "linkType": "HARD",
         }]
@@ -3048,7 +3055,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["eslint-plugin-prettier", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:3.4.0"],
             ["@types/eslint", "npm:7.2.14"],
-            ["@types/prettier", "npm:2.3.1"],
+            ["@types/prettier", "npm:2.3.2"],
             ["eslint", "npm:7.30.0"],
             ["eslint-config-prettier", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:8.3.0"],
             ["prettier", "npm:2.3.2"],
