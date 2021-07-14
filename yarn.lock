@@ -442,10 +442,7 @@ __metadata:
   resolution: "@gweninterpreter/gwen-web@workspace:."
   dependencies:
     "@types/decompress": 4.2.4
-    "@types/eslint": 7.2.14
-    "@types/eslint-plugin-prettier": 3.1.0
     "@types/jest": 26.0.24
-    "@types/prettier": 2.3.2
     "@types/progress": 2.0.4
     "@types/xmldom": 0.1.31
     "@typescript-eslint/eslint-plugin": 4.28.3
@@ -834,42 +831,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint-plugin-prettier@npm:3.1.0":
-  version: 3.1.0
-  resolution: "@types/eslint-plugin-prettier@npm:3.1.0"
-  dependencies:
-    "@types/eslint": "*"
-  checksum: 2fb9fc7e402378aa95e02455d657b3fee2693ca85fae9c2f9a9d9b543ddb3723f3b3a103cfc4306de963bab15c3162d291f32b4e7605870a8637c503779b6e7a
-  languageName: node
-  linkType: hard
-
-"@types/eslint@npm:*":
-  version: 7.2.13
-  resolution: "@types/eslint@npm:7.2.13"
-  dependencies:
-    "@types/estree": "*"
-    "@types/json-schema": "*"
-  checksum: e55906fa72e6288bd129652c4b3aa992d7219481265e1651564ba0d5fbacf41e39f97252a9001549eac544e5465f7f93ae81844b1e291f6cbf17c17ec048f729
-  languageName: node
-  linkType: hard
-
-"@types/eslint@npm:7.2.14":
-  version: 7.2.14
-  resolution: "@types/eslint@npm:7.2.14"
-  dependencies:
-    "@types/estree": "*"
-    "@types/json-schema": "*"
-  checksum: e7ab90a295beae9495e3241a57078cc36dd1b7e58d0d2605d927abbe6eee5b8996ab6aff0f6d230da93d5f0361b737416dd8137f6c89d38f19d3d1f51f34d22d
-  languageName: node
-  linkType: hard
-
-"@types/estree@npm:*":
-  version: 0.0.49
-  resolution: "@types/estree@npm:0.0.49"
-  checksum: 3defc98b145582b8e14872a5308fa4717397f4a3ea6be9785e46c18fe21fa742b489aec7769424b6c4b4b5002b74d22e2ad6d43e624c735e5117eab21bd1fb4a
-  languageName: node
-  linkType: hard
-
 "@types/graceful-fs@npm:^4.1.2":
   version: 4.1.5
   resolution: "@types/graceful-fs@npm:4.1.5"
@@ -914,7 +875,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.7":
+"@types/json-schema@npm:^7.0.7":
   version: 7.0.7
   resolution: "@types/json-schema@npm:7.0.7"
   checksum: b9d2c509fa4e0b82f58e73f5e6ab76c60ff1884ba41bb82f37fb1cece226d4a3e5a62fedf78a43da0005373a6713d9abe61c1e592906402c41c08ad6ab26d52b
@@ -925,13 +886,6 @@ __metadata:
   version: 15.12.4
   resolution: "@types/node@npm:15.12.4"
   checksum: 64b121a7e805379382aeb3eefed56c4c34f1ebf5e818ba2c732e43beebc4fbde20be438f3eaaffd8dba5062f0e0c9ae085127b7239906d170eda816885a6c508
-  languageName: node
-  linkType: hard
-
-"@types/prettier@npm:2.3.2":
-  version: 2.3.2
-  resolution: "@types/prettier@npm:2.3.2"
-  checksum: 7b425386aaf3b03fa63382ed1aceff367477ef9a52a2705978bfb1495fa1d8795316e1ab84671f6c8c5920de59a33d1567d837b9eb033996983efdfdbce84cb3
   languageName: node
   linkType: hard
 
