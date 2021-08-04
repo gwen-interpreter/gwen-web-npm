@@ -39,7 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/decompress", "npm:4.2.4"],
             ["@types/jest", "npm:26.0.24"],
-            ["@types/progress", "npm:2.0.4"],
+            ["@types/progress", "npm:2.0.5"],
             ["@types/xmldom", "npm:0.1.31"],
             ["@typescript-eslint/eslint-plugin", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:4.28.3"],
             ["@typescript-eslint/parser", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:4.28.3"],
@@ -866,7 +866,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@gweninterpreter/gwen-web", "workspace:."],
             ["@types/decompress", "npm:4.2.4"],
             ["@types/jest", "npm:26.0.24"],
-            ["@types/progress", "npm:2.0.4"],
+            ["@types/progress", "npm:2.0.5"],
             ["@types/xmldom", "npm:0.1.31"],
             ["@typescript-eslint/eslint-plugin", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:4.28.3"],
             ["@typescript-eslint/parser", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:4.28.3"],
@@ -1377,10 +1377,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/progress", [
-        ["npm:2.0.4", {
-          "packageLocation": "./.yarn/cache/@types-progress-npm-2.0.4-8b1ab5eb0e-03a4dbe701.zip/node_modules/@types/progress/",
+        ["npm:2.0.5", {
+          "packageLocation": "./.yarn/cache/@types-progress-npm-2.0.5-c1af533382-8d1ee460c5.zip/node_modules/@types/progress/",
           "packageDependencies": [
-            ["@types/progress", "npm:2.0.4"],
+            ["@types/progress", "npm:2.0.5"],
             ["@types/node", "npm:15.12.4"]
           ],
           "linkType": "HARD",

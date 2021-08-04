@@ -443,7 +443,7 @@ __metadata:
   dependencies:
     "@types/decompress": 4.2.4
     "@types/jest": 26.0.24
-    "@types/progress": 2.0.4
+    "@types/progress": 2.0.5
     "@types/xmldom": 0.1.31
     "@typescript-eslint/eslint-plugin": 4.28.3
     "@typescript-eslint/parser": 4.28.3
@@ -896,12 +896,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/progress@npm:2.0.4":
-  version: 2.0.4
-  resolution: "@types/progress@npm:2.0.4"
+"@types/progress@npm:2.0.5":
+  version: 2.0.5
+  resolution: "@types/progress@npm:2.0.5"
   dependencies:
     "@types/node": "*"
-  checksum: 03a4dbe701581ba3b49be8d57afb14ea96256dae137117167d95f0d4a8b2c57184a903071ae98c18e5f0eb335ecbd02bee436ce158e975da87360ca39326f0ab
+  checksum: 8d1ee460c5bcbb9b1b220bba37f0e87df31d0a2298abd8167bb5382d3aa37e83b5114cc48d49cbaf4933173f6938bc8a904c85148887d102fb9372d1547e4be6
   languageName: node
   linkType: hard
 
