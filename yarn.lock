@@ -452,7 +452,7 @@ __metadata:
     decompress: 4.2.1
     eslint: 7.30.0
     eslint-config-prettier: 8.3.0
-    eslint-plugin-jest: 24.3.6
+    eslint-plugin-jest: 24.7.0
     eslint-plugin-prettier: 3.4.0
     husky: 7.0.1
     jest: 27.0.6
@@ -2122,9 +2122,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:24.3.6":
-  version: 24.3.6
-  resolution: "eslint-plugin-jest@npm:24.3.6"
+"eslint-plugin-jest@npm:24.7.0":
+  version: 24.7.0
+  resolution: "eslint-plugin-jest@npm:24.7.0"
   dependencies:
     "@typescript-eslint/experimental-utils": ^4.0.1
   peerDependencies:
@@ -2133,7 +2133,7 @@ __metadata:
   peerDependenciesMeta:
     "@typescript-eslint/eslint-plugin":
       optional: true
-  checksum: 13f4522cd838a6a356a080f76424579a58aa2f9b4f4b3fdd3713278718496c62ba3d8f53c0fb6ad6fd96ca6cfd6ee728f7dd51893b91eccfb4396b832f757afb
+  checksum: f74e998e46fe40c9693031cf2b6ab2a759c3212d09169f7797d4cc2daac65a7d849092ec919c647e3257734a6b20030ae2f68df85b8806e8dfca335dbab4bcd5
   languageName: node
   linkType: hard
 
