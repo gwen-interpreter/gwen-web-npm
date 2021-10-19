@@ -54,7 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:27.0.6"],
             ["prettier", "npm:2.3.2"],
             ["progress", "npm:2.0.3"],
-            ["ts-jest", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:27.0.3"],
+            ["ts-jest", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:27.0.7"],
             ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"],
             ["xmldom", "npm:0.6.0"],
             ["xpath", "npm:0.0.32"]
@@ -881,7 +881,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:27.0.6"],
             ["prettier", "npm:2.3.2"],
             ["progress", "npm:2.0.3"],
-            ["ts-jest", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:27.0.3"],
+            ["ts-jest", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:27.0.7"],
             ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"],
             ["xmldom", "npm:0.6.0"],
             ["xpath", "npm:0.0.32"]
@@ -4745,6 +4745,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["lodash.memoize", [
+        ["npm:4.1.2", {
+          "packageLocation": "./.yarn/cache/lodash.memoize-npm-4.1.2-0e6250041f-080c1095b7.zip/node_modules/lodash.memoize/",
+          "packageDependencies": [
+            ["lodash.memoize", "npm:4.1.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["lodash.merge", [
         ["npm:4.6.2", {
           "packageLocation": "./.yarn/cache/lodash.merge-npm-4.6.2-77cb4416bf-4e2bb42a87.zip/node_modules/lodash.merge/",
@@ -6180,35 +6189,43 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ts-jest", [
-        ["npm:27.0.3", {
-          "packageLocation": "./.yarn/cache/ts-jest-npm-27.0.3-10e7dc0605-a63f3a8620.zip/node_modules/ts-jest/",
+        ["npm:27.0.7", {
+          "packageLocation": "./.yarn/cache/ts-jest-npm-27.0.7-ed0add2515-bfb3af9134.zip/node_modules/ts-jest/",
           "packageDependencies": [
-            ["ts-jest", "npm:27.0.3"]
+            ["ts-jest", "npm:27.0.7"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:27.0.3", {
-          "packageLocation": "./.yarn/$$virtual/ts-jest-virtual-39c3a20a46/0/cache/ts-jest-npm-27.0.3-10e7dc0605-a63f3a8620.zip/node_modules/ts-jest/",
+        ["virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:27.0.7", {
+          "packageLocation": "./.yarn/$$virtual/ts-jest-virtual-58714f41aa/0/cache/ts-jest-npm-27.0.7-ed0add2515-bfb3af9134.zip/node_modules/ts-jest/",
           "packageDependencies": [
-            ["ts-jest", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:27.0.3"],
+            ["ts-jest", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:27.0.7"],
+            ["@babel/core", null],
+            ["@types/babel-jest", null],
+            ["@types/babel__core", null],
             ["@types/jest", "npm:26.0.24"],
+            ["@types/types__jest", null],
             ["@types/typescript", null],
+            ["babel-jest", null],
             ["bs-logger", "npm:0.2.6"],
-            ["buffer-from", "npm:1.1.1"],
             ["fast-json-stable-stringify", "npm:2.1.0"],
             ["jest", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:27.0.6"],
             ["jest-util", "npm:27.0.6"],
             ["json5", "npm:2.2.0"],
-            ["lodash", "npm:4.17.21"],
+            ["lodash.memoize", "npm:4.1.2"],
             ["make-error", "npm:1.3.6"],
-            ["mkdirp", "npm:1.0.4"],
             ["semver", "npm:7.3.5"],
             ["typescript", "patch:typescript@npm%3A4.3.5#builtin<compat/typescript>::version=4.3.5&hash=ddfc1b"],
             ["yargs-parser", "npm:20.2.9"]
           ],
           "packagePeers": [
+            "@babel/core",
+            "@types/babel-jest",
+            "@types/babel__core",
             "@types/jest",
+            "@types/types__jest",
             "@types/typescript",
+            "babel-jest",
             "jest",
             "typescript"
           ],
