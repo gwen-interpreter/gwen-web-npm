@@ -43,7 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/xmldom", "npm:0.1.31"],
             ["@typescript-eslint/eslint-plugin", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:4.28.3"],
             ["@typescript-eslint/parser", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:4.28.3"],
-            ["axios", "npm:0.21.1"],
+            ["axios", "npm:0.24.0"],
             ["cachedir", "npm:2.3.0"],
             ["decompress", "npm:4.2.1"],
             ["eslint", "npm:7.30.0"],
@@ -870,7 +870,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/xmldom", "npm:0.1.31"],
             ["@typescript-eslint/eslint-plugin", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:4.28.3"],
             ["@typescript-eslint/parser", "virtual:675289460da1533e330b4b9d69f8fa36ff399e77bc91dbd8755a5f0dd57dbbda7db5bc2456e2dfcf7afe43d22085d67970dc4b2aaee6bab687819be201cba270#npm:4.28.3"],
-            ["axios", "npm:0.21.1"],
+            ["axios", "npm:0.24.0"],
             ["cachedir", "npm:2.3.0"],
             ["decompress", "npm:4.2.1"],
             ["eslint", "npm:7.30.0"],
@@ -1943,11 +1943,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["axios", [
-        ["npm:0.21.1", {
-          "packageLocation": "./.yarn/cache/axios-npm-0.21.1-d192f6b3b3-864fb7b5d0.zip/node_modules/axios/",
+        ["npm:0.24.0", {
+          "packageLocation": "./.yarn/cache/axios-npm-0.24.0-39e5c1e79e-e741dfea07.zip/node_modules/axios/",
           "packageDependencies": [
-            ["axios", "npm:0.21.1"],
-            ["follow-redirects", "virtual:d192f6b3b31cd5d11a443145a3883a70c04cbd7c813c53085dbaf50263735f1162f10fdbddd53c24e162ec3bc37b90966413084323739b7cf942b8bfb4da8831#npm:1.14.1"]
+            ["axios", "npm:0.24.0"],
+            ["follow-redirects", "virtual:39e5c1e79ea63134f0cf339f4463df92854aaf708a45210afd29a0b4b9f67f95b34a1abbcabaae6d0033ad99a1d5f690ab51ed8e5d3283b87ccbc3a9ab3ec05f#npm:1.14.5"]
           ],
           "linkType": "HARD",
         }]
@@ -3340,17 +3340,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["follow-redirects", [
-        ["npm:1.14.1", {
-          "packageLocation": "./.yarn/cache/follow-redirects-npm-1.14.1-e6bdc0f8e5-761a186996.zip/node_modules/follow-redirects/",
+        ["npm:1.14.5", {
+          "packageLocation": "./.yarn/cache/follow-redirects-npm-1.14.5-7c681222a0-69c5dc6658.zip/node_modules/follow-redirects/",
           "packageDependencies": [
-            ["follow-redirects", "npm:1.14.1"]
+            ["follow-redirects", "npm:1.14.5"]
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:d192f6b3b31cd5d11a443145a3883a70c04cbd7c813c53085dbaf50263735f1162f10fdbddd53c24e162ec3bc37b90966413084323739b7cf942b8bfb4da8831#npm:1.14.1", {
-          "packageLocation": "./.yarn/$$virtual/follow-redirects-virtual-0c4ea90a75/0/cache/follow-redirects-npm-1.14.1-e6bdc0f8e5-761a186996.zip/node_modules/follow-redirects/",
+        ["virtual:39e5c1e79ea63134f0cf339f4463df92854aaf708a45210afd29a0b4b9f67f95b34a1abbcabaae6d0033ad99a1d5f690ab51ed8e5d3283b87ccbc3a9ab3ec05f#npm:1.14.5", {
+          "packageLocation": "./.yarn/$$virtual/follow-redirects-virtual-02c2a4727a/0/cache/follow-redirects-npm-1.14.5-7c681222a0-69c5dc6658.zip/node_modules/follow-redirects/",
           "packageDependencies": [
-            ["follow-redirects", "virtual:d192f6b3b31cd5d11a443145a3883a70c04cbd7c813c53085dbaf50263735f1162f10fdbddd53c24e162ec3bc37b90966413084323739b7cf942b8bfb4da8831#npm:1.14.1"],
+            ["follow-redirects", "virtual:39e5c1e79ea63134f0cf339f4463df92854aaf708a45210afd29a0b4b9f67f95b34a1abbcabaae6d0033ad99a1d5f690ab51ed8e5d3283b87ccbc3a9ab3ec05f#npm:1.14.5"],
             ["debug", null]
           ],
           "packagePeers": [

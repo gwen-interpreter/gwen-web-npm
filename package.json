@@ -28,7 +28,7 @@
     "prepack": "yarn build"
   },
   "dependencies": {
-    "axios": "0.21.1",
+    "axios": "0.24.0",
     "cachedir": "2.3.0",
     "decompress": "4.2.1",
     "progress": "2.0.3",
