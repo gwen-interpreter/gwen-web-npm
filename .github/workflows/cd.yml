@@ -27,11 +27,3 @@ jobs:
         run: pnpm publish --no-git-checks --access public
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Setup Node for Github Packages publish
-        uses: actions/setup-node@v2
-        with:
-          registry-url: https://npm.pkg.github.com
-      - name: Publish to Github Packages
-        run: pnpm publish --no-git-checks --access public
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
