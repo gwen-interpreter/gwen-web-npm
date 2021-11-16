@@ -20,6 +20,10 @@
   "bin": {
     "gwen": "./bin/gwen.js"
   },
+  "files": [
+    "bin",
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "format": "prettier '**/*.ts' --write",
