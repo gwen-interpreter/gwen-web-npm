@@ -25,7 +25,7 @@
     "format": "prettier '**/*.ts' --write",
     "lint": "eslint . --ext .ts",
     "test": "jest",
-    "prepack": "yarn build"
+    "prepack": "pnpm build"
   },
   "dependencies": {
     "axios": "0.21.1",
