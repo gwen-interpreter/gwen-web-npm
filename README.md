@@ -9,19 +9,19 @@ Setup
 For npm users:
 ```
 npm i --save-dev @gweninterpreter/gwen-web
-npm run gwen
+npm run gwen init
 ```
 
 For Yarn users:
 ```
 yarn add -D @gweninterpreter/gwen-web
-yarn gwen
+yarn gwen init
 ```
 
 For pnpm users:
 ```
 pnpm add -D @gweninterpreter/gwen-web
-pnpm gwen
+pnpm gwen init
 ```
 
 ### Versions
@@ -35,7 +35,7 @@ desired version, like so:
 
 ```json
 "gwenWeb": {
-  "version": "2.52.0"
+  "version": "3.0.0"
 }
 ```
 
