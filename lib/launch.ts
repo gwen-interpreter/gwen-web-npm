@@ -23,8 +23,7 @@ import getDesiredVersion from "./version";
 
 export async function run(): Promise<void> {
   try {
-    const scriptName =
-      process.platform === "win32" ? "gwen-web.bat" : "gwen-web";
+    const scriptName = process.platform === "win32" ? "gwen.bat" : "gwen";
     const version = await getDesiredVersion();
     const gwenArgs = process.argv.splice(2);
 
@@ -55,7 +54,7 @@ export async function run(): Promise<void> {
     gwenProcess.stderr.pipe(process.stderr);
     process.stdin.pipe(gwenProcess.stdin);
   } catch (e) {
-    if (e.message) console.log(e.message);
+    if (e instanceof Error) console.log(e.message);
     process.exit(1);
   }
 }

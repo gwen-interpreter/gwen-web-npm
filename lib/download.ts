@@ -79,8 +79,8 @@ async function startDownload(version: string): Promise<Result> {
     console.log("Validating downloaded archive hash...");
     const sha1 = await getFileSha1(downloadLocation);
     if (sha1 !== downloadStream.headers["x-checksum-sha1"]) {
-      const etagSum = downloadStream.headers["etag"].match(/{SHA1{(.*)}}/)[1];
-      if (sha1 !== etagSum) {
+      const etagSum = downloadStream.headers["etag"].match(/{SHA1{(.*)}}/);
+      if (etagSum && sha1 !== etagSum[1]) {
         return {
           status: "error",
           message:
@@ -94,12 +94,12 @@ async function startDownload(version: string): Promise<Result> {
       zipPath: downloadLocation,
     };
   } catch (e) {
-    if (e.response && e.response.status === 404) {
+    if (axios.isAxiosError(e) && e.response && e.response.status === 404) {
       return {
         status: "error",
         message: `Gwen-Web v${version} doesn't exist. Check your version in package.json and try again.`,
       };
-    } else if (e.response || e.request || !e.code) {
+    } else if (axios.isAxiosError(e) && (e.response || e.request || !e.code)) {
       return {
         status: "error",
         message: `Failed downloading Gwen-Web v${version}. Check your internet connection and try again.`,
