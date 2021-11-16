@@ -29,6 +29,7 @@
     "format": "prettier '**/*.ts' --write",
     "lint": "eslint . --ext .ts",
     "test": "jest",
+    "prepare": "husky install",
     "prepack": "pnpm build"
   },
   "dependencies": {
