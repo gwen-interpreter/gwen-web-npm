@@ -35,7 +35,7 @@ desired version, like so:
 
 ```json
 "gwenWeb": {
-  "version": "3.0.0"
+  "version": "3.1.3"
 }
 ```
 
