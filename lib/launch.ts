@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import childProcess from "child_process";
 import path from "path";
 import cachedir from "cachedir";
+import spawn from "cross-spawn";
 import downloadGwenWeb from "./download";
 import { fileExists } from "./files";
 import getDesiredVersion from "./version";
@@ -46,13 +46,9 @@ export async function run(): Promise<void> {
       await downloadGwenWeb(version);
     }
 
-    const gwenProcess = childProcess.spawn(pathToScript, gwenArgs, {
-      shell: true,
+    spawn.sync(pathToScript, gwenArgs, {
+      stdio: "inherit",
     });
-
-    gwenProcess.stdout.pipe(process.stdout);
-    gwenProcess.stderr.pipe(process.stderr);
-    process.stdin.pipe(gwenProcess.stdin);
   } catch (e) {
     if (e instanceof Error) console.log(e.message);
     process.exit(1);

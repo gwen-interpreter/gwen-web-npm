@@ -36,11 +36,13 @@
     "@xmldom/xmldom": "0.8.0",
     "axios": "0.25.0",
     "cachedir": "2.3.0",
+    "cross-spawn": "7.0.3",
     "decompress": "4.2.1",
     "progress": "2.0.3",
     "xpath": "0.0.32"
   },
   "devDependencies": {
+    "@types/cross-spawn": "^6.0.2",
     "@types/decompress": "4.2.4",
     "@types/jest": "27.0.3",
     "@types/progress": "2.0.5",
