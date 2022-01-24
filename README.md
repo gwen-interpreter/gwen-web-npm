@@ -24,20 +24,19 @@ pnpm add -D @gweninterpreter/gwen-web
 pnpm gwen init
 ```
 
-### Versions
+### Configuration options
 
-By default, running the `gwen` script will download and use the [latest Gwen-Web
-version](https://github.com/gwen-interpreter/gwen-web/releases/latest). If you
-want to use a [specific
-version](https://github.com/gwen-interpreter/gwen-web/releases) in your project,
-set the `version` field in the `gwenWeb` section of `package.json` to the
-desired version, like so:
+The behaviour of the Gwen launcher can be customized through setting some
+options in package.json, under the `gwenWeb` key:
 
-```json
-"gwenWeb": {
-  "version": "3.1.3"
-}
-```
+- `version`: Specifies the version of Gwen-Web to download. Can either be a
+  version number, or the string `latest`, in which case the latest version of
+  Gwen-Web will be used. Defaults to `latest`.
+- `mavenRepo`: Specifies the Maven repo to download Gwen-Web from. Useful if you
+  have eg. a local Artifactory instance to cache Gwen-Web in. Defaults to Maven
+  Central (https://repo1.maven.org/maven2/), or Sonatype Snapshots
+  (https://oss.sonatype.org/content/repositories/snapshots/) if a snapshot
+  version was specified.
 
 License
 -------
