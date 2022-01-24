@@ -39,6 +39,7 @@
     "cross-spawn": "7.0.3",
     "decompress": "4.2.1",
     "progress": "2.0.3",
+    "url-join": "4.0.1",
     "xpath": "0.0.32"
   },
   "devDependencies": {
@@ -46,6 +47,7 @@
     "@types/decompress": "4.2.4",
     "@types/jest": "27.0.3",
     "@types/progress": "2.0.5",
+    "@types/url-join": "^4.0.1",
     "@typescript-eslint/eslint-plugin": "5.5.0",
     "@typescript-eslint/parser": "5.5.0",
     "eslint": "8.3.0",

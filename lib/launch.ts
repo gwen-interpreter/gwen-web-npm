@@ -17,14 +17,17 @@
 import path from "path";
 import cachedir from "cachedir";
 import spawn from "cross-spawn";
+import { getConfig } from "./config";
 import downloadGwenWeb from "./download";
 import { fileExists } from "./files";
 import getDesiredVersion from "./version";
 
 export async function run(): Promise<void> {
   try {
+    const config = await getConfig();
+
     const scriptName = process.platform === "win32" ? "gwen.bat" : "gwen";
-    const version = await getDesiredVersion();
+    const version = await getDesiredVersion(config);
     const gwenArgs = process.argv.splice(2);
 
     const majorVersion = parseInt(version.charAt(0));
@@ -43,7 +46,7 @@ export async function run(): Promise<void> {
     );
 
     if (!(await fileExists(pathToScript))) {
-      await downloadGwenWeb(version);
+      await downloadGwenWeb(version, config.mavenRepo);
     }
 
     spawn.sync(pathToScript, gwenArgs, {

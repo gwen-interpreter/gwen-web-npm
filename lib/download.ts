@@ -21,6 +21,7 @@ import axios from "axios";
 import cachedir from "cachedir";
 import decompress from "decompress";
 import Progress from "progress";
+import urljoin from "url-join";
 import { fileExists, getFileSha1 } from "./files";
 
 const storedVersionPath = cachedir("gwen-web");
@@ -38,15 +39,10 @@ type ErrorResult = {
 };
 type Result = DoneResult | DownloadedResult | ErrorResult;
 
-function getDownloadUrl(version: string): string {
-  if (version.includes("SNAPSHOT")) {
-    return `https://oss.sonatype.org/content/repositories/snapshots/org/gweninterpreter/gwen-web/${version}/gwen-web-${version}.zip`;
-  } else {
-    return `https://repo1.maven.org/maven2/org/gweninterpreter/gwen-web/${version}/gwen-web-${version}.zip`;
-  }
-}
-
-async function startDownload(version: string): Promise<Result> {
+async function startDownload(
+  version: string,
+  mavenRepo: string
+): Promise<Result> {
   if (await fileExists(path.join(storedVersionPath, `gwen-web-${version}`))) {
     return {
       status: "done",
@@ -60,9 +56,15 @@ async function startDownload(version: string): Promise<Result> {
       await fsP.mkdtemp(path.join(os.tmpdir(), "gwen-web-")),
       `gwen-web-${version}.zip`
     );
-    const downloadStream = await axios.get(getDownloadUrl(version), {
-      responseType: "stream",
-    });
+    const downloadStream = await axios.get(
+      urljoin(
+        mavenRepo,
+        `/org/gweninterpreter/gwen-web/${version}/gwen-web-${version}.zip`
+      ),
+      {
+        responseType: "stream",
+      }
+    );
 
     const progress = new Progress("[:bar] :percent :elapseds", {
       width: 28,
@@ -138,8 +140,11 @@ function handleError(result: Result): void {
   }
 }
 
-export default async function download(version: string): Promise<void> {
-  const dlResult = await startDownload(version);
+export default async function download(
+  version: string,
+  mavenRepo: string
+): Promise<void> {
+  const dlResult = await startDownload(version, mavenRepo);
   handleError(dlResult);
 
   const extractResult = await extractZip(dlResult);

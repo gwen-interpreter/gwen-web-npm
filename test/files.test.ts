@@ -16,12 +16,12 @@
 
 import { getFileSha1, fileExists } from "../lib/files";
 
-const packageJsonFixture = "./test/fixtures/package.json";
+const testFile = "./test/fixtures/maven-metadata.xml";
 
 describe("getFileSha1", () => {
   it("should return the correct SHA1 hash for files", async () => {
-    await expect(getFileSha1(packageJsonFixture)).resolves.toBe(
-      "8981bcf45fd7b796e43a96e03e0a83496f2fcbf2"
+    await expect(getFileSha1(testFile)).resolves.toBe(
+      "b964a11afac8518ace639fb97de21aff58b8d457"
     );
   });
 
@@ -34,7 +34,7 @@ describe("getFileSha1", () => {
 
 describe("fileExists", () => {
   it("should return true when a file exists", async () => {
-    await expect(fileExists(packageJsonFixture)).resolves.toBe(true);
+    await expect(fileExists(testFile)).resolves.toBe(true);
   });
 
   it("should return false when a file does not exist", async () => {

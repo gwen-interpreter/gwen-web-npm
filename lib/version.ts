@@ -14,20 +14,24 @@
  * limitations under the License.
  */
 
-import { promises as fs } from "fs";
 import axios from "axios";
+import urljoin from "url-join";
 import { DOMParser } from "@xmldom/xmldom";
 import xpath from "xpath";
+import type { Config } from "./config";
 
-const gwenMavenMetadataUrl =
-  "https://repo1.maven.org/maven2/org/gweninterpreter/gwen-web/maven-metadata.xml";
-
-async function getLatestVersion(): Promise<string> {
+async function getLatestVersion(config: Config): Promise<string> {
   try {
     const metaXml = (
-      await axios.get(gwenMavenMetadataUrl, {
-        responseType: "text",
-      })
+      await axios.get(
+        urljoin(
+          config.mavenRepo,
+          "/org/gweninterpreter/gwen-web/maven-metadata.xml"
+        ),
+        {
+          responseType: "text",
+        }
+      )
     ).data;
 
     const metaDoc = new DOMParser().parseFromString(metaXml);
@@ -45,16 +49,12 @@ async function getLatestVersion(): Promise<string> {
 }
 
 export default async function getDesiredVersion(
-  packageJsonPath = "./package.json"
+  config: Config
 ): Promise<string> {
-  const packageJson = JSON.parse(
-    (await fs.readFile(packageJsonPath)).toString()
-  );
-
-  if (packageJson.gwenWeb?.version) {
-    return packageJson.gwenWeb?.version;
-  } else {
+  if (config.version === "latest") {
     console.log("No version specified, using latest");
-    return await getLatestVersion();
+    return await getLatestVersion(config);
+  } else {
+    return config.version;
   }
 }
