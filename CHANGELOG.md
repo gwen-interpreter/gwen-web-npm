@@ -1,3 +1,9 @@
+v1.1.0
+======
+
+- Add new `mavenRepo` configuration option
+- Fix Gwen output not being coloured ([#50](https://github.com/gwen-interpreter/gwen-web-npm/issues/50))
+
 v1.0.2
 ======
 
