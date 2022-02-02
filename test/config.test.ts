@@ -20,7 +20,7 @@ describe("getConfig", () => {
 
     expect(config.version).toBe("2.0.0-SNAPSHOT");
     expect(config.mavenRepo).toBe(
-      "https://oss.sonatype.org/content/repositories/snapshots/"
+      "https://s01.oss.sonatype.org/content/repositories/snapshots/"
     );
   });
 });
