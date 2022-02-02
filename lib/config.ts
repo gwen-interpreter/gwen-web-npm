@@ -7,7 +7,7 @@ export interface Config {
 
 function getDefaultRepo(version = "") {
   if (version.includes("SNAPSHOT")) {
-    return "https://oss.sonatype.org/content/repositories/snapshots/";
+    return "https://s01.oss.sonatype.org/content/repositories/snapshots/";
   } else {
     return "https://repo1.maven.org/maven2/";
   }
