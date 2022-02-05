@@ -1,3 +1,8 @@
+v1.1.1
+======
+
+- Change snapshot repo host from https://oss.sonatype.org/ to https://s01.oss.sonatype.org/
+
 v1.1.0
 ======
 
