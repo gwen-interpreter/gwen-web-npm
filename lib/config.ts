@@ -2,15 +2,8 @@ import { promises as fs } from "fs";
 
 export interface Config {
   mavenRepo: string;
+  mavenSnapshotRepo: string;
   version: string;
-}
-
-function getDefaultRepo(version = "") {
-  if (version.includes("SNAPSHOT")) {
-    return "https://s01.oss.sonatype.org/content/repositories/snapshots/";
-  } else {
-    return "https://repo1.maven.org/maven2/";
-  }
 }
 
 export async function getConfig(
@@ -22,7 +15,10 @@ export async function getConfig(
   const userSettings = packageJson.gwenWeb ?? {};
 
   return {
-    mavenRepo: userSettings.mavenRepo ?? getDefaultRepo(userSettings.version),
+    mavenRepo: userSettings.mavenRepo ?? "https://repo1.maven.org/maven2/",
+    mavenSnapshotRepo:
+      userSettings.mavenSnapshotRepo ??
+      "https://s01.oss.sonatype.org/content/repositories/snapshots/",
     version: userSettings.version ?? "latest",
   };
 }

@@ -6,6 +6,7 @@ describe("getConfig", () => {
 
     expect(config.version).toBe("2.0.0");
     expect(config.mavenRepo).toBe("testRepo");
+    expect(config.mavenSnapshotRepo).toBe("testSnapshotRepo");
   });
 
   it("should pick the correct defaults when none are specified", async () => {
@@ -13,13 +14,7 @@ describe("getConfig", () => {
 
     expect(config.version).toBe("latest");
     expect(config.mavenRepo).toBe("https://repo1.maven.org/maven2/");
-  });
-
-  it("should pick the snapshot repo if the version is a snapshot", async () => {
-    const config = await getConfig("./test/fixtures/snapshot-package.json");
-
-    expect(config.version).toBe("2.0.0-SNAPSHOT");
-    expect(config.mavenRepo).toBe(
+    expect(config.mavenSnapshotRepo).toBe(
       "https://s01.oss.sonatype.org/content/repositories/snapshots/"
     );
   });

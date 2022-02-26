@@ -9,6 +9,7 @@
   "author": "",
   "gwenWeb": {
     "mavenRepo": "testRepo",
+    "mavenSnapshotRepo": "testSnapshotRepo",
     "version": "2.0.0"
   }
 }

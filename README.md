@@ -34,9 +34,11 @@ options in package.json, under the `gwenWeb` key:
   Gwen-Web will be used. Defaults to `latest`.
 - `mavenRepo`: Specifies the Maven repo to download Gwen-Web from. Useful if you
   have eg. a local Artifactory instance to cache Gwen-Web in. Defaults to Maven
-  Central (https://repo1.maven.org/maven2/), or Sonatype Snapshots
-  (https://s01.oss.sonatype.org/content/repositories/snapshots/) if a snapshot
-  version was specified.
+  Central (https://repo1.maven.org/maven2/).
+- `mavenSnapshotRepo`: Specifies the Maven repo to download Gwen-Web from when
+  `version` is a snapshot version (ie. contains the string `SNAPSHOT`). Defaults
+  to Sonatype Snapshots
+  (https://s01.oss.sonatype.org/content/repositories/snapshots/).
 
 License
 -------

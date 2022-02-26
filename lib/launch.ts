@@ -46,7 +46,10 @@ export async function run(): Promise<void> {
     );
 
     if (!(await fileExists(pathToScript))) {
-      await downloadGwenWeb(version, config.mavenRepo);
+      const repo = version.includes("SNAPSHOT")
+        ? config.mavenSnapshotRepo
+        : config.mavenRepo;
+      await downloadGwenWeb(version, repo);
     }
 
     const result = spawn.sync(pathToScript, gwenArgs, {

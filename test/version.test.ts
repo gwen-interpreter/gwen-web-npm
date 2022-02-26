@@ -22,11 +22,17 @@ import getDesiredVersion from "../lib/version";
 const axios = mocked(_axios, true);
 const metadataFixture = "./test/fixtures/maven-metadata.xml";
 
+const config = {
+  mavenRepo: "test repo",
+  mavenSnapshotRepo: "test repo",
+  version: "latest",
+};
+
 describe("getDesiredVersion", () => {
   it("should return the version specified", async () => {
     await expect(
       getDesiredVersion({
-        mavenRepo: "test repo",
+        ...config,
         version: "2.0.0",
       })
     ).resolves.toBe("2.0.0");
@@ -37,12 +43,7 @@ describe("getDesiredVersion", () => {
       data: (await fs.readFile(metadataFixture)).toString(),
     });
 
-    await expect(
-      getDesiredVersion({
-        mavenRepo: "test repo",
-        version: "latest",
-      })
-    ).resolves.toBe("2.52.0");
+    await expect(getDesiredVersion(config)).resolves.toBe("2.52.0");
   });
 
   it("should reject if the metadata is invalid", async () => {
@@ -50,12 +51,7 @@ describe("getDesiredVersion", () => {
       data: "bad response",
     });
 
-    await expect(
-      getDesiredVersion({
-        mavenRepo: "test repo",
-        version: "latest",
-      })
-    ).rejects.toThrow(
+    await expect(getDesiredVersion(config)).rejects.toThrow(
       "Failed to get latest Gwen-Web version. Check your internet connection and try again."
     );
   });
@@ -67,12 +63,7 @@ describe("getDesiredVersion", () => {
       },
     });
 
-    await expect(
-      getDesiredVersion({
-        mavenRepo: "test repo",
-        version: "latest",
-      })
-    ).rejects.toThrow(
+    await expect(getDesiredVersion(config)).rejects.toThrow(
       "Failed to get latest Gwen-Web version. Check your internet connection and try again."
     );
   });
