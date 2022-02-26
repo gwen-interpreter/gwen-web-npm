@@ -1,3 +1,9 @@
+v1.2.0
+======
+
+- Add new `mavenSnapshotRepo` configuration option
+- Fix wrapper not returning exit code of Gwen process ([#56](https://github.com/gwen-interpreter/gwen-web-npm/issues/56))
+
 v1.1.1
 ======
 
