@@ -49,9 +49,11 @@ export async function run(): Promise<void> {
       await downloadGwenWeb(version, config.mavenRepo);
     }
 
-    spawn.sync(pathToScript, gwenArgs, {
+    const result = spawn.sync(pathToScript, gwenArgs, {
       stdio: "inherit",
     });
+
+    process.exit(result.status ?? 0);
   } catch (e) {
     if (e instanceof Error) console.log(e.message);
     process.exit(1);
