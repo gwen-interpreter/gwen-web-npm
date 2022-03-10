@@ -9,7 +9,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 5.5.0
   '@typescript-eslint/parser': 5.5.0
   '@xmldom/xmldom': 0.8.1
-  axios: 0.26.0
+  axios: 0.26.1
   cachedir: 2.3.0
   cross-spawn: 7.0.3
   decompress: 4.2.1
@@ -28,7 +28,7 @@ specifiers:
 
 dependencies:
   '@xmldom/xmldom': 0.8.1
-  axios: 0.26.0
+  axios: 0.26.1
   cachedir: 2.3.0
   cross-spawn: 7.0.3
   decompress: 4.2.1
@@ -1050,8 +1050,8 @@ packages:
     resolution: {integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=}
     dev: true
 
-  /axios/0.26.0:
-    resolution: {integrity: sha512-lKoGLMYtHvFrPVt3r+RBMp9nh34N0M8zEfCWqdWZx6phynIEhQqAdydpyBAAG211zlhX9Rgu08cOamy6XjE5Og==}
+  /axios/0.26.1:
+    resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
     dependencies:
       follow-redirects: 1.14.8
     transitivePeerDependencies:
