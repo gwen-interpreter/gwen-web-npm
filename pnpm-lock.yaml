@@ -8,7 +8,7 @@ specifiers:
   '@types/url-join': ^4.0.1
   '@typescript-eslint/eslint-plugin': 5.5.0
   '@typescript-eslint/parser': 5.5.0
-  '@xmldom/xmldom': 0.8.1
+  '@xmldom/xmldom': 0.8.2
   axios: 0.26.1
   cachedir: 2.3.0
   cross-spawn: 7.0.3
@@ -27,7 +27,7 @@ specifiers:
   xpath: 0.0.32
 
 dependencies:
-  '@xmldom/xmldom': 0.8.1
+  '@xmldom/xmldom': 0.8.2
   axios: 0.26.1
   cachedir: 2.3.0
   cross-spawn: 7.0.3
@@ -928,8 +928,8 @@ packages:
       eslint-visitor-keys: 3.1.0
     dev: true
 
-  /@xmldom/xmldom/0.8.1:
-    resolution: {integrity: sha512-4wOae+5N2RZ+CZXd9ZKwkaDi55IxrSTOjHpxTvQQ4fomtOJmqVxbmICA9jE1jvnqNhpfgz8cnfFagG86wV/xLQ==}
+  /@xmldom/xmldom/0.8.2:
+    resolution: {integrity: sha512-+R0juSseERyoPvnBQ/cZih6bpF7IpCXlWbHRoCRzYzqpz6gWHOgf8o4MOEf6KBVuOyqU+gCNLkCWVIJAro8XyQ==}
     engines: {node: '>=10.0.0'}
     dev: false
 
