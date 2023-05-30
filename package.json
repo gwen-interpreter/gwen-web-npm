@@ -33,7 +33,7 @@
     "prepack": "pnpm build"
   },
   "dependencies": {
-    "@xmldom/xmldom": "0.8.2",
+    "@xmldom/xmldom": "0.8.8",
     "axios": "0.26.1",
     "cachedir": "2.3.0",
     "cross-spawn": "7.0.3",
