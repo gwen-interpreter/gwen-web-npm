@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
+import { jest } from "@jest/globals";
 import { promises as fs } from "fs";
-import { mocked } from "ts-jest/utils";
 import _axios from "axios";
 import getDesiredVersion from "../lib/version";
 
-const axios = mocked(_axios, true);
+const axios = jest.mocked(_axios);
 const metadataFixture = "./test/fixtures/maven-metadata.xml";
 
 const config = {
