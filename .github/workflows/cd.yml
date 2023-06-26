@@ -4,26 +4,28 @@ on:
     tags:
       - v*.*.*
 
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Pull code
         uses: actions/checkout@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Setup Node for NPM publish
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
+          cache: pnpm
           registry-url: https://registry.npmjs.org
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.1
-        with:
-          version: 6.22.2
       - name: Install Node dependencies
         run: pnpm i --frozen-lockfile
       - name: Run tests
         run: pnpm test
       - name: Publish to NPM
         run: pnpm publish --no-git-checks --access public
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
