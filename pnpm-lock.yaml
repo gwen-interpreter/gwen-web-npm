@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@xmldom/xmldom':
-    specifier: 0.8.2
-    version: 0.8.2
+    specifier: 0.8.8
+    version: 0.8.8
   axios:
     specifier: 0.26.1
     version: 0.26.1
@@ -1023,8 +1023,8 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@xmldom/xmldom@0.8.2:
-    resolution: {integrity: sha512-+R0juSseERyoPvnBQ/cZih6bpF7IpCXlWbHRoCRzYzqpz6gWHOgf8o4MOEf6KBVuOyqU+gCNLkCWVIJAro8XyQ==}
+  /@xmldom/xmldom@0.8.8:
+    resolution: {integrity: sha512-0LNz4EY8B/8xXY86wMrQ4tz6zEHZv9ehFMJPm8u2gq5lQ71cfRKdaKyxfJAx5aUoyzx0qzgURblTisPGgz3d+Q==}
     engines: {node: '>=10.0.0'}
     dev: false
 
