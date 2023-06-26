@@ -22,8 +22,21 @@ import downloadGwenWeb from "./download";
 import { fileExists } from "./files";
 import getDesiredVersion from "./version";
 
+export function checkNodeVersion(version: string): boolean {
+  const majorVersion = parseInt(version.split(".")[0]);
+
+  return majorVersion >= 12;
+}
+
 export async function run(): Promise<void> {
   try {
+    if (!checkNodeVersion(process.versions.node)) {
+      console.log(
+        `Your version of Node.js (${process.versions.node}) is too old. Please update to Node.js 12 or higher.`
+      );
+      process.exit(1);
+    }
+
     const config = await getConfig();
 
     const scriptName = process.platform === "win32" ? "gwen.bat" : "gwen";
