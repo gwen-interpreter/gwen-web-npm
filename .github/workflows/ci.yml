@@ -1,6 +1,9 @@
 name: Run Tests
 on: [push, pull_request]
 
+env:
+  NPM_TOKEN: dummy
+
 jobs:
   test:
     runs-on: ubuntu-latest
