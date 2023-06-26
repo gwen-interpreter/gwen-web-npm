@@ -1,3 +1,9 @@
+v1.3.0
+======
+
+- Exit with an error message if running on Node.js older than v12.0.0
+- Miscellaneous dependency updates
+
 v1.2.0
 ======
 
