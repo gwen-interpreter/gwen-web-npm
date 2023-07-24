@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -12,8 +12,8 @@ dependencies:
     specifier: 0.26.1
     version: 0.26.1
   cachedir:
-    specifier: 2.3.0
-    version: 2.3.0
+    specifier: 2.4.0
+    version: 2.4.0
   cross-spawn:
     specifier: 7.0.3
     version: 7.0.3
@@ -1268,8 +1268,8 @@ packages:
       ieee754: 1.2.1
     dev: false
 
-  /cachedir@2.3.0:
-    resolution: {integrity: sha512-A+Fezp4zxnit6FanDmv9EqXNAi3vt9DWp51/71UEhXukb7QUuvtv9344h91dyAxuTLoSYJFU299qzR3tzwPAhw==}
+  /cachedir@2.4.0:
+    resolution: {integrity: sha512-9EtFOZR8g22CL7BWjJ9BUx1+A/djkofnyW3aOXZORNW2kxoUpx2h+uN2cOqwPmFhnpVmxg+KW2OjOSgChTEvsQ==}
     engines: {node: '>=6'}
     dev: false
 
