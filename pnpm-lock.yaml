@@ -27,8 +27,8 @@ dependencies:
     specifier: 4.0.1
     version: 4.0.1
   xpath:
-    specifier: 0.0.32
-    version: 0.0.32
+    specifier: 0.0.33
+    version: 0.0.33
 
 devDependencies:
   '@jest/globals':
@@ -3361,8 +3361,8 @@ packages:
       signal-exit: 3.0.7
     dev: true
 
-  /xpath@0.0.32:
-    resolution: {integrity: sha512-rxMJhSIoiO8vXcWvSifKqhvV96GjiD5wYb8/QHdoRyQvraTpp4IEv944nhGausZZ3u7dhQXteZuZbaqfpB7uYw==}
+  /xpath@0.0.33:
+    resolution: {integrity: sha512-NNXnzrkDrAzalLhIUc01jO2mOzXGXh1JwPgkihcLLzw98c0WgYDmmjSh1Kl3wzaxSVWMuA+fe0WTWOBDWCBmNA==}
     engines: {node: '>=0.6.0'}
     dev: false
 
