@@ -16,10 +16,9 @@
 
 import { jest } from "@jest/globals";
 import { promises as fs } from "fs";
-import _axios from "axios";
 import getDesiredVersion from "../lib/version";
 
-const axios = jest.mocked(_axios);
+const mockFetch = jest.spyOn(global, "fetch");
 const metadataFixture = "./test/fixtures/maven-metadata.xml";
 
 const config = {
@@ -39,17 +38,15 @@ describe("getDesiredVersion", () => {
   });
 
   it("should return the latest version from the network", async () => {
-    axios.get.mockResolvedValueOnce({
-      data: (await fs.readFile(metadataFixture)).toString(),
-    });
+    mockFetch.mockImplementationOnce(
+      async () => new Response((await fs.readFile(metadataFixture)).toString()),
+    );
 
     await expect(getDesiredVersion(config)).resolves.toBe("2.52.0");
   });
 
   it("should reject if the metadata is invalid", async () => {
-    axios.get.mockResolvedValueOnce({
-      data: "bad response",
-    });
+    mockFetch.mockImplementationOnce(async () => new Response("bad response"));
 
     await expect(getDesiredVersion(config)).rejects.toThrow(
       "Failed to get latest Gwen-Web version. Check your internet connection and try again.",
@@ -57,11 +54,9 @@ describe("getDesiredVersion", () => {
   });
 
   it("should reject if the metadata could not be fetched", async () => {
-    axios.get.mockRejectedValueOnce({
-      response: {
-        status: 404,
-      },
-    });
+    mockFetch.mockImplementationOnce(
+      async () => new Response("not found", { status: 404 }),
+    );
 
     await expect(getDesiredVersion(config)).rejects.toThrow(
       "Failed to get latest Gwen-Web version. Check your internet connection and try again.",

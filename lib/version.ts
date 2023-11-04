@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import axios from "axios";
 import urljoin from "url-join";
 import { DOMParser } from "@xmldom/xmldom";
 import xpath from "xpath";
@@ -22,18 +21,18 @@ import type { Config } from "./config";
 
 async function getLatestVersion(config: Config): Promise<string> {
   try {
-    const metaXml = (
-      await axios.get(
-        urljoin(
-          config.mavenRepo,
-          "/org/gweninterpreter/gwen-web/maven-metadata.xml",
-        ),
-        {
-          responseType: "text",
-        },
-      )
-    ).data;
+    const metaXmlRes = await fetch(
+      urljoin(
+        config.mavenRepo,
+        "/org/gweninterpreter/gwen-web/maven-metadata.xml",
+      ),
+    );
 
+    if (!metaXmlRes.ok) {
+      throw new Error("Unable to get Gwen-Web metadata.");
+    }
+
+    const metaXml = await metaXmlRes.text();
     const metaDoc = new DOMParser().parseFromString(metaXml);
     const result = xpath.select1("string(//latest)", metaDoc);
     if (result) {
