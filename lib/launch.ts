@@ -32,7 +32,7 @@ export async function run(): Promise<void> {
   try {
     if (!checkNodeVersion(process.versions.node)) {
       console.log(
-        `Your version of Node.js (${process.versions.node}) is too old. Please update to Node.js 12 or higher.`
+        `Your version of Node.js (${process.versions.node}) is too old. Please update to Node.js 12 or higher.`,
       );
       process.exit(1);
     }
@@ -46,7 +46,7 @@ export async function run(): Promise<void> {
     const majorVersion = parseInt(version.charAt(0));
     if (gwenArgs.includes("init") && majorVersion < 3) {
       console.log(
-        'The "init" command is only supported on Gwen-Web v3.0.0 and higher.'
+        'The "init" command is only supported on Gwen-Web v3.0.0 and higher.',
       );
       process.exit(1);
     }
@@ -55,7 +55,7 @@ export async function run(): Promise<void> {
       cachedir("gwen-web"),
       `gwen-web-${version}`,
       "bin",
-      scriptName
+      scriptName,
     );
 
     if (!(await fileExists(pathToScript))) {

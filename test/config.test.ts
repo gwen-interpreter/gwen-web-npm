@@ -31,7 +31,7 @@ describe("getConfig", () => {
     expect(config.version).toBe("latest");
     expect(config.mavenRepo).toBe("https://repo1.maven.org/maven2/");
     expect(config.mavenSnapshotRepo).toBe(
-      "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+      "https://s01.oss.sonatype.org/content/repositories/snapshots/",
     );
   });
 });

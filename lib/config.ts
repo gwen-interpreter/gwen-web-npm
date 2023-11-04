@@ -23,10 +23,10 @@ export interface Config {
 }
 
 export async function getConfig(
-  packageJsonPath = "./package.json"
+  packageJsonPath = "./package.json",
 ): Promise<Config> {
   const packageJson = JSON.parse(
-    (await fs.readFile(packageJsonPath)).toString()
+    (await fs.readFile(packageJsonPath)).toString(),
   );
   const userSettings = packageJson.gwenWeb ?? {};
 

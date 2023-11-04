@@ -34,7 +34,7 @@ describe("getDesiredVersion", () => {
       getDesiredVersion({
         ...config,
         version: "2.0.0",
-      })
+      }),
     ).resolves.toBe("2.0.0");
   });
 
@@ -52,7 +52,7 @@ describe("getDesiredVersion", () => {
     });
 
     await expect(getDesiredVersion(config)).rejects.toThrow(
-      "Failed to get latest Gwen-Web version. Check your internet connection and try again."
+      "Failed to get latest Gwen-Web version. Check your internet connection and try again.",
     );
   });
 
@@ -64,7 +64,7 @@ describe("getDesiredVersion", () => {
     });
 
     await expect(getDesiredVersion(config)).rejects.toThrow(
-      "Failed to get latest Gwen-Web version. Check your internet connection and try again."
+      "Failed to get latest Gwen-Web version. Check your internet connection and try again.",
     );
   });
 });

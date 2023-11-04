@@ -41,7 +41,7 @@ type Result = DoneResult | DownloadedResult | ErrorResult;
 
 async function startDownload(
   version: string,
-  mavenRepo: string
+  mavenRepo: string,
 ): Promise<Result> {
   if (await fileExists(path.join(storedVersionPath, `gwen-web-${version}`))) {
     return {
@@ -54,16 +54,16 @@ async function startDownload(
   try {
     const downloadLocation = path.join(
       await fsP.mkdtemp(path.join(os.tmpdir(), "gwen-web-")),
-      `gwen-web-${version}.zip`
+      `gwen-web-${version}.zip`,
     );
     const downloadStream = await axios.get(
       urljoin(
         mavenRepo,
-        `/org/gweninterpreter/gwen-web/${version}/gwen-web-${version}.zip`
+        `/org/gweninterpreter/gwen-web/${version}/gwen-web-${version}.zip`,
       ),
       {
         responseType: "stream",
-      }
+      },
     );
 
     const progress = new Progress("[:bar] :percent :elapseds", {
@@ -142,7 +142,7 @@ function handleError(result: Result): void {
 
 export default async function download(
   version: string,
-  mavenRepo: string
+  mavenRepo: string,
 ): Promise<void> {
   const dlResult = await startDownload(version, mavenRepo);
   handleError(dlResult);

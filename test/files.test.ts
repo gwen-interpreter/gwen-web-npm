@@ -21,13 +21,13 @@ const testFile = "./test/fixtures/maven-metadata.xml";
 describe("getFileSha1", () => {
   it("should return the correct SHA1 hash for files", async () => {
     await expect(getFileSha1(testFile)).resolves.toBe(
-      "b964a11afac8518ace639fb97de21aff58b8d457"
+      "b964a11afac8518ace639fb97de21aff58b8d457",
     );
   });
 
   it("should reject if the file cannot be read", async () => {
     await expect(getFileSha1("bad path")).rejects.toThrow(
-      "Could not get hash of file bad path"
+      "Could not get hash of file bad path",
     );
   });
 });

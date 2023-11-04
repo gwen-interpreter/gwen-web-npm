@@ -26,11 +26,11 @@ async function getLatestVersion(config: Config): Promise<string> {
       await axios.get(
         urljoin(
           config.mavenRepo,
-          "/org/gweninterpreter/gwen-web/maven-metadata.xml"
+          "/org/gweninterpreter/gwen-web/maven-metadata.xml",
         ),
         {
           responseType: "text",
-        }
+        },
       )
     ).data;
 
@@ -43,13 +43,13 @@ async function getLatestVersion(config: Config): Promise<string> {
     }
   } catch (e) {
     throw new Error(
-      "Failed to get latest Gwen-Web version. Check your internet connection and try again."
+      "Failed to get latest Gwen-Web version. Check your internet connection and try again.",
     );
   }
 }
 
 export default async function getDesiredVersion(
-  config: Config
+  config: Config,
 ): Promise<string> {
   if (config.version === "latest") {
     console.log("No version specified, using latest");
