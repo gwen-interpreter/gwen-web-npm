@@ -25,14 +25,14 @@ import getDesiredVersion from "./version";
 export function checkNodeVersion(version: string): boolean {
   const majorVersion = parseInt(version.split(".")[0]);
 
-  return majorVersion >= 12;
+  return majorVersion >= 18;
 }
 
 export async function run(): Promise<void> {
   try {
     if (!checkNodeVersion(process.versions.node)) {
       console.log(
-        `Your version of Node.js (${process.versions.node}) is too old. Please update to Node.js 12 or higher.`,
+        `Your version of Node.js (${process.versions.node}) is too old. Please update to Node.js 18 or higher.`,
       );
       process.exit(1);
     }
