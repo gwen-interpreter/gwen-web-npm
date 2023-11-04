@@ -1,3 +1,10 @@
+v2.0.0
+======
+
+- **Breaking change:** The minimum Node version requirement has been bumped from 12 to 18
+- Remove dependency on axios, using builtin fetch instead
+- Miscellaneous dependency updates
+
 v1.3.0
 ======
 
