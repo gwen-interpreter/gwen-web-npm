@@ -1,5 +1,5 @@
 /*
- * Copyright 2021-2023 Jacob Juric
+ * Copyright 2021-2024 Ruby Juric
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

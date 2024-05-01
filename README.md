@@ -43,7 +43,7 @@ options in package.json, under the `gwenWeb` key:
 License
 -------
 
-Copyright 2021-2023 Jacob Juric
+Copyright 2021-2024 Ruby Juric
 
 This software is open sourced under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
