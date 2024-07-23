@@ -20,7 +20,10 @@
   "bin": {
     "gwen": "./bin/gwen.js"
   },
-  "files": ["bin", "dist"],
+  "files": [
+    "bin",
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "format": "prettier '**/*.ts' --write",
@@ -35,6 +38,7 @@
     "cross-spawn": "7.0.3",
     "decompress": "4.2.1",
     "progress": "2.0.3",
+    "semver": "^7.6.3",
     "url-join": "4.0.1",
     "xpath": "0.0.34"
   },
@@ -44,6 +48,7 @@
     "@types/decompress": "4.2.4",
     "@types/jest": "29.5.2",
     "@types/progress": "2.0.5",
+    "@types/semver": "^7.5.8",
     "@types/url-join": "4.0.1",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",

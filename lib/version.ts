@@ -14,12 +14,18 @@
  * limitations under the License.
  */
 
+import semverMaxSatisfying from "semver/ranges/max-satisfying";
 import urljoin from "url-join";
 import { DOMParser } from "@xmldom/xmldom";
 import xpath from "xpath";
 import type { Config } from "./config";
 
-async function getLatestVersion(config: Config): Promise<string> {
+type VersionInfo = {
+  latestVersion: string;
+  versions: string[];
+};
+
+async function getVersionInfo(config: Config): Promise<VersionInfo> {
   try {
     const metaXmlRes = await fetch(
       urljoin(
@@ -29,20 +35,36 @@ async function getLatestVersion(config: Config): Promise<string> {
     );
 
     if (!metaXmlRes.ok) {
-      throw new Error("Unable to get Gwen-Web metadata.");
+      throw new Error("Unable to fetch Gwen-Web version metadata.");
     }
 
     const metaXml = await metaXmlRes.text();
     const metaDoc = new DOMParser().parseFromString(metaXml);
-    const result = xpath.select1("string(//latest)", metaDoc);
-    if (result) {
-      return result as string;
-    } else {
-      throw new Error("Unable to find latest Gwen-Web version.");
+    const latestVersion = xpath.select1(
+      "string(/metadata/versioning/latest)",
+      metaDoc,
+    ) as string;
+
+    const versionElements = xpath.select(
+      "/metadata/versioning/versions/version",
+      metaDoc,
+    ) as Node[];
+
+    if (!latestVersion || versionElements.length === 0) {
+      throw new Error("Unable to parse Gwen-Web version metadata.");
     }
+
+    const versions = versionElements
+      .map((node) => node.firstChild?.nodeValue)
+      .filter(Boolean) as string[];
+
+    return {
+      latestVersion,
+      versions,
+    };
   } catch (e) {
     throw new Error(
-      "Failed to get latest Gwen-Web version. Check your internet connection and try again.",
+      "Failed to get Gwen-Web versions. Check your internet connection and try again.",
     );
   }
 }
@@ -50,14 +72,21 @@ async function getLatestVersion(config: Config): Promise<string> {
 export default async function getDesiredVersion(
   config: Config,
 ): Promise<string> {
-  if (process.env.GWEN_WEB_VERSION !== undefined) {
-    return process.env.GWEN_WEB_VERSION;
-  }
+  const versionInfo = await getVersionInfo(config);
+  const versionRange = process.env.GWEN_WEB_VERSION ?? config.version;
 
-  if (config.version === "latest") {
+  if (versionRange === "latest") {
     console.log("No version specified, using latest");
-    return await getLatestVersion(config);
+    return versionInfo.latestVersion;
   } else {
-    return config.version;
+    const resolvedVersion = semverMaxSatisfying(
+      versionInfo.versions,
+      versionRange,
+    );
+    if (resolvedVersion === null) {
+      throw new Error("Failed to resolve specified Gwen-Web version.");
+    }
+
+    return resolvedVersion;
   }
 }
