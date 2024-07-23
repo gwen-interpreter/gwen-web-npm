@@ -1,3 +1,9 @@
+v2.1.0
+======
+
+- Added `GWEN_WEB_VERSION` environment variable to override version specified in package.json
+- Added support for specifying Gwen-Web version using [semver](https://semver.org/) ranges (eg. `^3.0.0`)
+
 v2.0.0
 ======
 
