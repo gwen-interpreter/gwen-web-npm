@@ -28,13 +28,35 @@ const config = {
 };
 
 describe("getDesiredVersion", () => {
-  it("should return the version specified", async () => {
+  const origEnv = process.env;
+
+  beforeEach(() => {
+    jest.resetModules();
+    process.env = { ...origEnv };
+  });
+
+  afterEach(() => {
+    process.env = origEnv;
+  });
+
+  it("should return the version specified in package.json", async () => {
     await expect(
       getDesiredVersion({
         ...config,
         version: "2.0.0",
       }),
     ).resolves.toBe("2.0.0");
+  });
+
+  it("should return the version specified in environment variables", async () => {
+    process.env.GWEN_WEB_VERSION = "3.0.0";
+
+    await expect(
+      getDesiredVersion({
+        ...config,
+        version: "2.0.0",
+      }),
+    ).resolves.toBe("3.0.0");
   });
 
   it("should return the latest version from the network", async () => {
