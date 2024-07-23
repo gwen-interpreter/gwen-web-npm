@@ -30,8 +30,9 @@ The behaviour of the Gwen launcher can be customized through setting some
 options in package.json, under the `gwenWeb` key:
 
 - `version`: Specifies the version of Gwen-Web to download. Can either be a
-  version number, or the string `latest`, in which case the latest version of
-  Gwen-Web will be used. Defaults to `latest`.
+  version number, a [semver](https://semver.org/) range, or the string `latest`,
+  in which case the latest version of Gwen-Web will be used. Defaults to
+  `latest`.
 - `mavenRepo`: Specifies the Maven repo to download Gwen-Web from. Useful if you
   have eg. a local Artifactory instance to cache Gwen-Web in. Defaults to Maven
   Central (https://repo1.maven.org/maven2/).
@@ -39,6 +40,11 @@ options in package.json, under the `gwenWeb` key:
   `version` is a snapshot version (ie. contains the string `SNAPSHOT`). Defaults
   to Sonatype Snapshots
   (https://s01.oss.sonatype.org/content/repositories/snapshots/).
+
+The version specified in `package.json` can also be overridden using the
+`GWEN_WEB_VERSION` environment variable. It accepts the same values as `version`
+described above, and will take precedence over the version specified in
+`package.json` if it exists.
 
 License
 -------
