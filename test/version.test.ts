@@ -54,6 +54,16 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("2.0.0");
   });
 
+  it("should return the SNAPSHOT version specified in package.json", async () => {
+    await expect(
+      getDesiredVersion({
+        ...config,
+        version: "2.0.0-1-SNAPSHOT",
+      }),
+    ).resolves.toBe("2.0.0-1-SNAPSHOT");
+  });
+
+
   it("should return the latest version matching specified semver range", async () => {
     await expect(
       getDesiredVersion({
