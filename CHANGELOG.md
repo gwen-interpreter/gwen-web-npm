@@ -1,3 +1,7 @@
+v2.1.1
+======
+- Fixed version resolution failure when a SNAPSHOT version is specified
+
 v2.1.0
 ======
 

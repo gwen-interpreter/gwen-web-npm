@@ -63,7 +63,6 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("2.0.0-1-SNAPSHOT");
   });
 
-
   it("should return the latest version matching specified semver range", async () => {
     await expect(
       getDesiredVersion({

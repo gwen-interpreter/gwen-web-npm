@@ -1,6 +1,6 @@
 {
   "name": "@gweninterpreter/gwen-web",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "NPM package providing a launcher for Gwen-Web.",
   "keywords": [
     "testing",
