@@ -78,6 +78,8 @@ export default async function getDesiredVersion(
   if (versionRange === "latest") {
     console.log("No version specified, using latest");
     return versionInfo.latestVersion;
+  } else if (versionRange.endsWith("-SNAPSHOT")) {
+    return versionRange;
   } else {
     const resolvedVersion = semverMaxSatisfying(
       versionInfo.versions,
