@@ -16,7 +16,7 @@
 
 import semverMaxSatisfying from "semver/ranges/max-satisfying";
 import urljoin from "url-join";
-import { DOMParser } from "@xmldom/xmldom";
+import { DOMParser, MIME_TYPE } from "@xmldom/xmldom";
 import xpath from "xpath";
 import type { Config } from "./config";
 
@@ -39,7 +39,10 @@ async function getVersionInfo(config: Config): Promise<VersionInfo> {
     }
 
     const metaXml = await metaXmlRes.text();
-    const metaDoc = new DOMParser().parseFromString(metaXml);
+    const metaDoc = new DOMParser().parseFromString(
+      metaXml,
+      MIME_TYPE.XML_APPLICATION,
+    );
     const latestVersion = xpath.select1(
       "string(/metadata/versioning/latest)",
       metaDoc,
