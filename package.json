@@ -30,6 +30,7 @@
     "prepack": "pnpm build"
   },
   "dependencies": {
+    "@xmldom/is-dom-node": "^1.0.1",
     "@xmldom/xmldom": "0.9.5",
     "cachedir": "2.4.0",
     "cross-spawn": "7.0.5",
