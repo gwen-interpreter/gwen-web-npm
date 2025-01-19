@@ -12,8 +12,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       '@xmldom/xmldom':
-        specifier: 0.9.6
-        version: 0.9.6
+        specifier: 0.9.7
+        version: 0.9.7
       cachedir:
         specifier: 2.4.0
         version: 2.4.0
@@ -613,8 +613,8 @@ packages:
     resolution: {integrity: sha512-CJDxIgE5I0FH+ttq/Fxy6nRpxP70+e2O048EPe85J2use3XKdatVM7dDVvFNjQudd9B49NPoZ+8PG49zj4Er8Q==}
     engines: {node: '>= 16'}
 
-  '@xmldom/xmldom@0.9.6':
-    resolution: {integrity: sha512-Su4xcxR0CPGwlDHNmVP09fqET9YxbyDXHaSob6JlBH7L6reTYaeim6zbk9o08UarO0L5GTRo3uzl0D+9lSxmvw==}
+  '@xmldom/xmldom@0.9.7':
+    resolution: {integrity: sha512-syvR8iIJjpTZ/stv7l89UAViwGFh6lbheeOaqSxkYx9YNmIVvPTRH+CT/fpykFtUx5N+8eSMDRvggF9J8GEPzQ==}
     engines: {node: '>=14.6'}
 
   acorn-jsx@5.3.2:
@@ -2780,7 +2780,7 @@ snapshots:
 
   '@xmldom/is-dom-node@1.0.1': {}
 
-  '@xmldom/xmldom@0.9.6': {}
+  '@xmldom/xmldom@0.9.7': {}
 
   acorn-jsx@5.3.2(acorn@8.11.2):
     dependencies:
