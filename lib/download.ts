@@ -15,6 +15,7 @@
  */
 
 import type { ReadableStream } from "node:stream/web";
+import type { Repo } from "./config";
 import fs, { promises as fsP } from "fs";
 import path from "path";
 import os from "os";
@@ -41,7 +42,7 @@ type Result = DoneResult | DownloadedResult | ErrorResult;
 
 async function startDownload(
   version: string,
-  mavenRepo: string,
+  mavenRepo: Repo,
 ): Promise<Result> {
   if (await fileExists(path.join(storedVersionPath, `gwen-web-${version}`))) {
     return {
@@ -58,7 +59,7 @@ async function startDownload(
     );
     const downloadRes = await fetch(
       urljoin(
-        mavenRepo,
+        mavenRepo.url,
         `/org/gweninterpreter/gwen-web/${version}/gwen-web-${version}.zip`,
       ),
     );
@@ -113,7 +114,7 @@ async function startDownload(
     if (e instanceof TypeError) {
       return {
         status: "error",
-        message: `Failed downloading Gwen-Web v${version}. Check your internet connection and try again.`,
+        message: `Failed downloading Gwen-Web v${version}. Check your internet${mavenRepo.custom ? " or maven repo" : ""} connection and try again.`,
       };
     } else {
       return {
@@ -151,7 +152,7 @@ function handleError(result: Result): void {
 
 export default async function download(
   version: string,
-  mavenRepo: string,
+  mavenRepo: Repo,
 ): Promise<void> {
   const dlResult = await startDownload(version, mavenRepo);
   handleError(dlResult);

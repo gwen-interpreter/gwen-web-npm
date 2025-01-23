@@ -30,7 +30,7 @@ async function getVersionInfo(config: Config): Promise<VersionInfo> {
   try {
     const metaXmlRes = await fetch(
       urljoin(
-        config.mavenRepo,
+        config.mavenRepo.url,
         "/org/gweninterpreter/gwen-web/maven-metadata.xml",
       ),
     );
@@ -74,7 +74,7 @@ async function getVersionInfo(config: Config): Promise<VersionInfo> {
     };
   } catch (e) {
     throw new Error(
-      "Failed to get Gwen-Web versions. Check your internet connection and try again.",
+      `Failed to get Gwen-Web versions. Check your internet${config.mavenRepo.custom ? " or maven repo" : ""} connection and try again.`,
     );
   }
 }

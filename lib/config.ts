@@ -16,9 +16,14 @@
 
 import { promises as fs } from "fs";
 
+export type Repo = {
+  url: string;
+  custom: boolean;
+};
+
 export interface Config {
-  mavenRepo: string;
-  mavenSnapshotRepo: string;
+  mavenRepo: Repo;
+  mavenSnapshotRepo: Repo;
   version: string;
 }
 
@@ -29,12 +34,22 @@ export async function getConfig(
     (await fs.readFile(packageJsonPath)).toString(),
   );
   const userSettings = packageJson.gwenWeb ?? {};
+  const defaultMavenRepo = "https://repo1.maven.org/maven2/";
+  const defaultMavenSnapshotRepo =
+    "https://s01.oss.sonatype.org/content/repositories/snapshots/";
 
   return {
-    mavenRepo: userSettings.mavenRepo ?? "https://repo1.maven.org/maven2/",
-    mavenSnapshotRepo:
-      userSettings.mavenSnapshotRepo ??
-      "https://s01.oss.sonatype.org/content/repositories/snapshots/",
+    mavenRepo: {
+      url: userSettings.mavenRepo ?? defaultMavenRepo,
+      custom:
+        !!userSettings.mavenRepo && userSettings.mavenRepo != defaultMavenRepo,
+    },
+    mavenSnapshotRepo: {
+      url: userSettings.mavenSnapshotRepo ?? defaultMavenSnapshotRepo,
+      custom:
+        !!userSettings.mavenSnapshotRepo &&
+        userSettings.mavenSnapshotRepo != defaultMavenSnapshotRepo,
+    },
     version: userSettings.version ?? "latest",
   };
 }
