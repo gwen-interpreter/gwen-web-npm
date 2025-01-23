@@ -21,7 +21,7 @@ const testFile = "./test/fixtures/maven-metadata.xml";
 describe("getFileSha1", () => {
   it("should return the correct SHA1 hash for files", async () => {
     await expect(getFileSha1(testFile)).resolves.toBe(
-      "b964a11afac8518ace639fb97de21aff58b8d457",
+      "f9abbe687aab74b9cc130ace1ee07cc81a8c4db5",
     );
   });
 

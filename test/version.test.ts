@@ -21,9 +21,15 @@ import getDesiredVersion from "../lib/version";
 const mockFetch = jest.spyOn(global, "fetch");
 const metadataFixture = "./test/fixtures/maven-metadata.xml";
 
-const config = {
-  mavenRepo: "test repo",
-  mavenSnapshotRepo: "test repo",
+const configDefaultRepo = {
+  mavenRepo: { url: "test repo", custom: false },
+  mavenSnapshotRepo: { url: "test repo", custom: false },
+  version: "latest",
+};
+
+const configCustomRepo = {
+  mavenRepo: { url: "test repo", custom: true },
+  mavenSnapshotRepo: { url: "test repo", custom: true },
   version: "latest",
 };
 
@@ -45,63 +51,123 @@ describe("getDesiredVersion", () => {
     process.env = origEnv;
   });
 
-  it("should return the version specified in package.json", async () => {
+  it("should return the version specified in package.json (default repo)", async () => {
     await expect(
       getDesiredVersion({
-        ...config,
+        ...configDefaultRepo,
         version: "2.0.0",
       }),
     ).resolves.toBe("2.0.0");
   });
 
-  it("should return the SNAPSHOT version specified in package.json", async () => {
+  it("should return the version specified in package.json (custom repo)", async () => {
     await expect(
       getDesiredVersion({
-        ...config,
+        ...configCustomRepo,
+        version: "2.1.0",
+      }),
+    ).resolves.toBe("2.1.0");
+  });
+
+  it("should return the SNAPSHOT version specified in package.json (default repo)", async () => {
+    await expect(
+      getDesiredVersion({
+        ...configDefaultRepo,
         version: "2.0.0-1-SNAPSHOT",
       }),
     ).resolves.toBe("2.0.0-1-SNAPSHOT");
   });
 
-  it("should return the latest version matching specified semver range", async () => {
+  it("should return the SNAPSHOT version specified in package.json (custom repo)", async () => {
     await expect(
       getDesiredVersion({
-        ...config,
+        ...configCustomRepo,
+        version: "2.1.0-1-SNAPSHOT",
+      }),
+    ).resolves.toBe("2.1.0-1-SNAPSHOT");
+  });
+
+  it("should return the latest version matching specified semver range (default repo)", async () => {
+    await expect(
+      getDesiredVersion({
+        ...configDefaultRepo,
         version: "^2.0.0",
       }),
     ).resolves.toBe("2.52.0");
   });
 
-  it("should return the version specified in environment variables", async () => {
+  it("should return the latest version matching specified semver range (custom repo)", async () => {
+    await expect(
+      getDesiredVersion({
+        ...configCustomRepo,
+        version: "^3.0.0",
+      }),
+    ).resolves.toBe("3.77.3");
+  });
+
+  it("should return the version specified in environment variables (default repo)", async () => {
     process.env.GWEN_WEB_VERSION = "2.10.0";
 
     await expect(
       getDesiredVersion({
-        ...config,
+        ...configDefaultRepo,
         version: "2.0.0",
       }),
     ).resolves.toBe("2.10.0");
   });
 
-  it("should return the latest version from the network", async () => {
-    await expect(getDesiredVersion(config)).resolves.toBe("2.52.0");
+  it("should return the version specified in environment variables  (custom repo)", async () => {
+    process.env.GWEN_WEB_VERSION = "4.2.7";
+
+    await expect(
+      getDesiredVersion({
+        ...configCustomRepo,
+        version: "4.2.7",
+      }),
+    ).resolves.toBe("4.2.7");
   });
 
-  it("should reject if the metadata is invalid", async () => {
+  it("should return the latest version from the network (default repo)", async () => {
+    await expect(getDesiredVersion(configDefaultRepo)).resolves.toBe("2.52.0");
+  });
+
+  it("should return the latest version from the network (custom repo)", async () => {
+    await expect(getDesiredVersion(configCustomRepo)).resolves.toBe("2.52.0");
+  });
+
+  it("should reject if the metadata is invalid (default repo)", async () => {
     mockFetch.mockImplementationOnce(async () => new Response("bad response"));
 
-    await expect(getDesiredVersion(config)).rejects.toThrow(
+    await expect(getDesiredVersion(configDefaultRepo)).rejects.toThrow(
       "Failed to get Gwen-Web versions. Check your internet connection and try again.",
     );
   });
 
-  it("should reject if the metadata could not be fetched", async () => {
+  it("should reject if the metadata is invalid (custom repo)", async () => {
+    mockFetch.mockImplementationOnce(async () => new Response("bad response"));
+
+    await expect(getDesiredVersion(configCustomRepo)).rejects.toThrow(
+      "Failed to get Gwen-Web versions. Check your internet or maven repo connection and try again.",
+    );
+  });
+
+  it("should reject if the metadata could not be fetched (default repo)", async () => {
     mockFetch.mockImplementationOnce(
       async () => new Response("not found", { status: 404 }),
     );
 
-    await expect(getDesiredVersion(config)).rejects.toThrow(
+    await expect(getDesiredVersion(configDefaultRepo)).rejects.toThrow(
       "Failed to get Gwen-Web versions. Check your internet connection and try again.",
+    );
+  });
+
+  it("should reject if the metadata could not be fetched (custom repo)", async () => {
+    mockFetch.mockImplementationOnce(
+      async () => new Response("not found", { status: 404 }),
+    );
+
+    await expect(getDesiredVersion(configCustomRepo)).rejects.toThrow(
+      "Failed to get Gwen-Web versions. Check your internet or maven repo connection and try again.",
     );
   });
 });
