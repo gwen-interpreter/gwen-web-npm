@@ -1,3 +1,7 @@
+v2.1.2
+======
+- Improved error message when Gwen download fails while a custom Maven repository is in use ([#91](https://github.com/gwen-interpreter/gwen-web-npm/pull/91), thanks @bjuric!)
+
 v2.1.1
 ======
 - Fixed version resolution failure when a SNAPSHOT version is specified
