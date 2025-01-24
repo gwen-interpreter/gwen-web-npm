@@ -114,7 +114,9 @@ async function startDownload(
     if (e instanceof TypeError) {
       return {
         status: "error",
-        message: `Failed downloading Gwen-Web v${version}. Check your internet${mavenRepo.custom ? " or maven repo" : ""} connection and try again.`,
+        message: `Failed downloading Gwen-Web v${version}. Check your internet${
+          mavenRepo.custom ? " or maven repo" : ""
+        } connection and try again.`,
       };
     } else {
       return {
