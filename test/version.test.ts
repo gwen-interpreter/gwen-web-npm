@@ -127,6 +127,28 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("4.2.7");
   });
 
+  it("should ignore the version specified in environment variables when using a SNAPSHOT (default repo)", async () => {
+    process.env.GWEN_WEB_VERSION = "2.10.0";
+
+    await expect(
+      getDesiredVersion({
+        ...configDefaultRepo,
+        version: "2.0.0-1-SNAPSHOT",
+      }),
+    ).resolves.toBe("2.0.0-1-SNAPSHOT");
+  });
+
+  it("should ignore the version specified in environment variables when using a SNAPSHOT (custom repo)", async () => {
+    process.env.GWEN_WEB_VERSION = "4.2.7";
+
+    await expect(
+      getDesiredVersion({
+        ...configCustomRepo,
+        version: "4.2.7-1-SNAPSHOT",
+      }),
+    ).resolves.toBe("4.2.7-1-SNAPSHOT");
+  });
+
   it("should return the latest version from the network (default repo)", async () => {
     await expect(getDesiredVersion(configDefaultRepo)).resolves.toBe("2.52.0");
   });
