@@ -1,3 +1,7 @@
+v2.1.3
+======
+- Ignore `GWEN_WEB_VERSION` if version in `package.json` is a snapshot ([#95](https://github.com/gwen-interpreter/gwen-web-npm/pull/95), thanks @bjuric!)
+
 v2.1.2
 ======
 - Improved error message when Gwen download fails while a custom Maven repository is in use ([#91](https://github.com/gwen-interpreter/gwen-web-npm/pull/91), thanks @bjuric!)
