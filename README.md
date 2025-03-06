@@ -49,7 +49,7 @@ described above, and will take precedence over the version specified in
 License
 -------
 
-Copyright 2021-2024 Ruby Juric
+Copyright 2021-2025 Ruby Juric
 
 This software is open sourced under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
