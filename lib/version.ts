@@ -87,7 +87,7 @@ export default async function getDesiredVersion(
   const versionInfo = await getVersionInfo(config);
   const versionRange = config.version.endsWith("-SNAPSHOT")
     ? config.version
-    : (process.env.GWEN_WEB_VERSION ?? config.version);
+    : process.env.GWEN_WEB_VERSION ?? config.version;
 
   if (versionRange === "latest") {
     console.log("No version specified, using latest");
