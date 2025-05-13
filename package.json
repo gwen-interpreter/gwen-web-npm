@@ -37,7 +37,7 @@
     "decompress": "4.2.1",
     "progress": "2.0.3",
     "semver": "^7.6.3",
-    "url-join": "4.0.1",
+    "url-join": "5.0.0",
     "xpath": "0.0.34"
   },
   "devDependencies": {
