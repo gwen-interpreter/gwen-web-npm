@@ -36,7 +36,7 @@ export async function getConfig(
   const userSettings = packageJson.gwenWeb ?? {};
   const defaultMavenRepo = "https://repo1.maven.org/maven2/";
   const defaultMavenSnapshotRepo =
-    "https://s01.oss.sonatype.org/content/repositories/snapshots/";
+    "https://central.sonatype.com/repository/maven-snapshots/";
 
   return {
     mavenRepo: {

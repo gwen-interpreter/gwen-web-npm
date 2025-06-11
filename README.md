@@ -38,8 +38,8 @@ options in package.json, under the `gwenWeb` key:
   Central (https://repo1.maven.org/maven2/).
 - `mavenSnapshotRepo`: Specifies the Maven repo to download Gwen-Web from when
   `version` is a snapshot version (ie. contains the string `SNAPSHOT`). Defaults
-  to Sonatype Snapshots
-  (https://s01.oss.sonatype.org/content/repositories/snapshots/).
+  to Sonatype Central Snapshots
+  (https://central.sonatype.com/repository/maven-snapshots/).
 
 The version specified in `package.json` can also be overridden using the
 `GWEN_WEB_VERSION` environment variable. It accepts the same values as `version`

@@ -37,7 +37,7 @@ describe("getConfig", () => {
       custom: false,
     });
     expect(config.mavenSnapshotRepo).toStrictEqual({
-      url: "https://s01.oss.sonatype.org/content/repositories/snapshots/",
+      url: "https://central.sonatype.com/repository/maven-snapshots/",
       custom: false,
     });
   });
