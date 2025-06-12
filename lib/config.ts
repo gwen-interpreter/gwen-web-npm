@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { promises as fs } from "fs";
+import { promises as fs } from "node:fs";
 
 export type Repo = {
   url: string;
@@ -42,13 +42,13 @@ export async function getConfig(
     mavenRepo: {
       url: userSettings.mavenRepo ?? defaultMavenRepo,
       custom:
-        !!userSettings.mavenRepo && userSettings.mavenRepo != defaultMavenRepo,
+        !!userSettings.mavenRepo && userSettings.mavenRepo !== defaultMavenRepo,
     },
     mavenSnapshotRepo: {
       url: userSettings.mavenSnapshotRepo ?? defaultMavenSnapshotRepo,
       custom:
         !!userSettings.mavenSnapshotRepo &&
-        userSettings.mavenSnapshotRepo != defaultMavenSnapshotRepo,
+        userSettings.mavenSnapshotRepo !== defaultMavenSnapshotRepo,
     },
     version: userSettings.version ?? "latest",
   };

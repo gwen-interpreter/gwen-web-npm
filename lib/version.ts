@@ -87,22 +87,22 @@ export default async function getDesiredVersion(
   const versionInfo = await getVersionInfo(config);
   const versionRange = config.version.endsWith("-SNAPSHOT")
     ? config.version
-    : process.env.GWEN_WEB_VERSION ?? config.version;
+    : (process.env.GWEN_WEB_VERSION ?? config.version);
 
   if (versionRange === "latest") {
     console.log("No version specified, using latest");
     return versionInfo.latestVersion;
-  } else if (versionRange.endsWith("-SNAPSHOT")) {
-    return versionRange;
-  } else {
-    const resolvedVersion = semverMaxSatisfying(
-      versionInfo.versions,
-      versionRange,
-    );
-    if (resolvedVersion === null) {
-      throw new Error("Failed to resolve specified Gwen-Web version.");
-    }
-
-    return resolvedVersion;
   }
+  if (versionRange.endsWith("-SNAPSHOT")) {
+    return versionRange;
+  }
+  const resolvedVersion = semverMaxSatisfying(
+    versionInfo.versions,
+    versionRange,
+  );
+  if (resolvedVersion === null) {
+    throw new Error("Failed to resolve specified Gwen-Web version.");
+  }
+
+  return resolvedVersion;
 }
