@@ -16,9 +16,9 @@
 
 import type { ReadableStream } from "node:stream/web";
 import type { Repo } from "./config";
-import fs, { promises as fsP } from "fs";
-import path from "path";
-import os from "os";
+import fs, { promises as fsP } from "node:fs";
+import path from "node:path";
+import os from "node:os";
 import cachedir from "cachedir";
 import decompress from "decompress";
 import Progress from "progress";
@@ -81,7 +81,7 @@ async function startDownload(
     const progress = new Progress("[:bar] :percent :elapseds", {
       width: 28,
       head: ">",
-      total: parseInt(downloadRes.headers.get("content-length") ?? ""),
+      total: Number.parseInt(downloadRes.headers.get("content-length") ?? ""),
     });
 
     const outputStream = fs.createWriteStream(downloadLocation);
@@ -118,18 +118,17 @@ async function startDownload(
           mavenRepo.custom ? " or maven repo" : ""
         } connection and try again.`,
       };
-    } else {
-      return {
-        status: "error",
-        message: "An unknown error occured while downloading Gwen-Web.",
-      };
     }
+    return {
+      status: "error",
+      message: "An unknown error occured while downloading Gwen-Web.",
+    };
   }
 }
 
 async function extractZip(info: Result): Promise<Result> {
   if (info.status !== "downloaded") return info;
-  console.log(`Extracting...`);
+  console.log("Extracting...");
 
   try {
     await decompress(info.zipPath, storedVersionPath);

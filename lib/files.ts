@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import crypto from "crypto";
-import fs, { promises as fsP } from "fs";
+import crypto from "node:crypto";
+import fs, { promises as fsP } from "node:fs";
 
 export async function getFileSha1(path: string): Promise<string> {
   const stream = fs.createReadStream(path);
