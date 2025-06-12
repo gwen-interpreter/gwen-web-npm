@@ -1,3 +1,7 @@
+v2.1.4
+======
+- Pull snapshot releases from the [new Sonatype Central](https://web.archive.org/web/20250521060328/https://central.sonatype.org/publish/publish-guide/) repo location ([#97](https://github.com/gwen-interpreter/gwen-web-npm/pull/97), thanks @bjuric!)
+
 v2.1.3
 ======
 - Ignore `GWEN_WEB_VERSION` if version in `package.json` is a snapshot ([#95](https://github.com/gwen-interpreter/gwen-web-npm/pull/95), thanks @bjuric!)
