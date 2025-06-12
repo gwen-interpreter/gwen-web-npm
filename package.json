@@ -23,8 +23,8 @@
   "files": ["bin", "dist"],
   "scripts": {
     "build": "tsc",
-    "format": "prettier '**/*.ts' --write",
-    "lint": "eslint . --ext .ts",
+    "format": "biome format --write",
+    "lint": "biome lint --write",
     "test": "jest",
     "prepare": "husky install",
     "prepack": "pnpm build"
@@ -41,6 +41,7 @@
     "xpath": "0.0.34"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@jest/globals": "^29.7.0",
     "@swc/core": "^1.12.0",
     "@swc/jest": "^0.2.38",
@@ -50,15 +51,8 @@
     "@types/progress": "2.0.5",
     "@types/semver": "^7.5.8",
     "@types/url-join": "4.0.1",
-    "@typescript-eslint/eslint-plugin": "^6.9.1",
-    "@typescript-eslint/parser": "^6.9.1",
-    "eslint": "^8.53.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-jest": "^27.6.0",
-    "eslint-plugin-prettier": "^5.0.1",
     "husky": "^8.0.3",
     "jest": "^29.7.0",
-    "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   }
 }
