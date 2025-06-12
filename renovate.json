@@ -1,4 +1,0 @@
-{
-  "extends": ["config:base", ":disableDevDependencies"],
-  "ignorePaths": ["test/fixtures/package.json"]
-}
