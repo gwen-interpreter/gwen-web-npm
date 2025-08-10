@@ -1,5 +1,5 @@
 let
-  nixpkgs = builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/f72be405a10668b8b00937b452f2145244103ebc.tar.gz";
+  nixpkgs = builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/1ef586712f85b4b004caecd385d6b023e7fd2450.tar.gz";
 
   defaultPkgs = import nixpkgs {
     config = { };
