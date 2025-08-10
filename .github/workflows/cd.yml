@@ -4,8 +4,9 @@ on:
     tags:
       - v*.*.*
 
-env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   deploy:
@@ -13,19 +14,27 @@ jobs:
     steps:
       - name: Pull code
         uses: actions/checkout@v4
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9
+
       - name: Setup Node for NPM publish
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
           registry-url: https://registry.npmjs.org
+
+      - name: Ensure npm is updated
+        run: npm install -g npm@latest
+
       - name: Install Node dependencies
         run: pnpm i --frozen-lockfile
+
       - name: Run tests
         run: pnpm test
+
       - name: Publish to NPM
         run: pnpm publish --no-git-checks --access public
