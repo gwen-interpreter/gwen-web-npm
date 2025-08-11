@@ -52,8 +52,8 @@ importers:
         specifier: 6.0.2
         version: 6.0.2
       '@types/decompress':
-        specifier: 4.2.4
-        version: 4.2.4
+        specifier: 4.2.7
+        version: 4.2.7
       '@types/jest':
         specifier: 30.0.0
         version: 30.0.0
@@ -687,8 +687,8 @@ packages:
   '@types/cross-spawn@6.0.2':
     resolution: {integrity: sha512-KuwNhp3eza+Rhu8IFI5HUXRP0LIhqH5cAjubUvGXXthh4YYBuP2ntwEX+Cz8GJoZUHlKo247wPWOfA9LYEq4cw==}
 
-  '@types/decompress@4.2.4':
-    resolution: {integrity: sha512-/C8kTMRTNiNuWGl5nEyKbPiMv6HA+0RbEXzFhFBEzASM6+oa4tJro9b8nj7eRlOFfuLdzUU+DS/GPDlvvzMOhA==}
+  '@types/decompress@4.2.7':
+    resolution: {integrity: sha512-9z+8yjKr5Wn73Pt17/ldnmQToaFHZxK0N1GHysuk/JIPT8RIdQeoInM01wWPgypRcvb6VH1drjuFpQ4zmY437g==}
 
   '@types/graceful-fs@4.1.8':
     resolution: {integrity: sha512-NhRH7YzWq8WiNKVavKPBmtLYZHxNY19Hh+az28O/phfp68CF45pMFud+ZzJ8ewnxnC5smIdF3dqFeiSUQ5I+pw==}
@@ -2815,9 +2815,9 @@ snapshots:
     dependencies:
       '@types/node': 20.3.1
 
-  '@types/decompress@4.2.4':
+  '@types/decompress@4.2.7':
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 24.2.1
 
   '@types/graceful-fs@4.1.8':
     dependencies:
