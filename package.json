@@ -45,7 +45,7 @@
     "@jest/globals": "^30.0.5",
     "@swc/core": "^1.12.0",
     "@swc/jest": "^0.2.38",
-    "@types/cross-spawn": "6.0.2",
+    "@types/cross-spawn": "6.0.6",
     "@types/decompress": "4.2.7",
     "@types/jest": "30.0.0",
     "@types/progress": "2.0.7",

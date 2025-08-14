@@ -49,8 +49,8 @@ importers:
         specifier: ^0.2.38
         version: 0.2.39(@swc/core@1.13.3)
       '@types/cross-spawn':
-        specifier: 6.0.2
-        version: 6.0.2
+        specifier: 6.0.6
+        version: 6.0.6
       '@types/decompress':
         specifier: 4.2.7
         version: 4.2.7
@@ -536,8 +536,8 @@ packages:
   '@types/babel__traverse@7.28.0':
     resolution: {integrity: sha512-8PvcXf70gTDZBgt9ptxJ8elBeBjcLOAcOtoO/mPJjtji1+CdGbHgm77om1GrsPxsiE+uXIpNSK64UYaIwQXd4Q==}
 
-  '@types/cross-spawn@6.0.2':
-    resolution: {integrity: sha512-KuwNhp3eza+Rhu8IFI5HUXRP0LIhqH5cAjubUvGXXthh4YYBuP2ntwEX+Cz8GJoZUHlKo247wPWOfA9LYEq4cw==}
+  '@types/cross-spawn@6.0.6':
+    resolution: {integrity: sha512-fXRhhUkG4H3TQk5dBhQ7m/JDdSNHKwR2BBia62lhwEIq9xGiQKLxd6LymNhn47SjXhsUEPmxi+PKw2OkW4LLjA==}
 
   '@types/decompress@4.2.7':
     resolution: {integrity: sha512-9z+8yjKr5Wn73Pt17/ldnmQToaFHZxK0N1GHysuk/JIPT8RIdQeoInM01wWPgypRcvb6VH1drjuFpQ4zmY437g==}
@@ -553,9 +553,6 @@ packages:
 
   '@types/jest@30.0.0':
     resolution: {integrity: sha512-XTYugzhuwqWjws0CVz8QpM36+T+Dz5mTEBKhNs/esGLnCIlGdRy+Dq78NRjd7ls7r8BC8ZRMOrKlkO1hU0JOwA==}
-
-  '@types/node@20.3.1':
-    resolution: {integrity: sha512-EhcH/wvidPy1WeML3TtYFGR83UzjxeWRen9V402T8aUGYsCHOmfoisV3ZSg03gAFIbLq8TnWOJ0f4cALtnSEUg==}
 
   '@types/node@24.2.1':
     resolution: {integrity: sha512-DRh5K+ka5eJic8CjH7td8QpYEV6Zo10gfRkjHCO3weqZHWDtAaSTFtl4+VMqOJ4N5jcuhZ9/l+yy8rVgw7BQeQ==}
@@ -2246,9 +2243,9 @@ snapshots:
     dependencies:
       '@babel/types': 7.28.2
 
-  '@types/cross-spawn@6.0.2':
+  '@types/cross-spawn@6.0.6':
     dependencies:
-      '@types/node': 20.3.1
+      '@types/node': 24.2.1
 
   '@types/decompress@4.2.7':
     dependencies:
@@ -2268,8 +2265,6 @@ snapshots:
     dependencies:
       expect: 30.0.5
       pretty-format: 30.0.5
-
-  '@types/node@20.3.1': {}
 
   '@types/node@24.2.1':
     dependencies:
