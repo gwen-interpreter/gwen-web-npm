@@ -53,6 +53,6 @@
     "@types/url-join": "4.0.1",
     "husky": "^9.1.7",
     "jest": "^30.0.5",
-    "typescript": "^5.2.2"
+    "typescript": "^6.0.3"
   }
 }
