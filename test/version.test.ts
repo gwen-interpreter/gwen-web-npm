@@ -52,6 +52,7 @@ describe("getDesiredVersion", () => {
   });
 
   it("should return the version specified in package.json (default repo)", async () => {
+    mockFetch.mockReset();
     await expect(
       getDesiredVersion({
         ...configDefaultRepo,
@@ -61,6 +62,7 @@ describe("getDesiredVersion", () => {
   });
 
   it("should return the version specified in package.json (custom repo)", async () => {
+    mockFetch.mockReset();
     await expect(
       getDesiredVersion({
         ...configCustomRepo,
@@ -70,6 +72,7 @@ describe("getDesiredVersion", () => {
   });
 
   it("should return the SNAPSHOT version specified in package.json (default repo)", async () => {
+    mockFetch.mockReset();
     await expect(
       getDesiredVersion({
         ...configDefaultRepo,
@@ -79,6 +82,7 @@ describe("getDesiredVersion", () => {
   });
 
   it("should return the SNAPSHOT version specified in package.json (custom repo)", async () => {
+    mockFetch.mockReset();
     await expect(
       getDesiredVersion({
         ...configCustomRepo,
@@ -107,7 +111,7 @@ describe("getDesiredVersion", () => {
 
   it("should return the version specified in environment variables (default repo)", async () => {
     process.env.GWEN_WEB_VERSION = "2.10.0";
-
+    mockFetch.mockReset();
     await expect(
       getDesiredVersion({
         ...configDefaultRepo,
@@ -118,7 +122,7 @@ describe("getDesiredVersion", () => {
 
   it("should return the version specified in environment variables  (custom repo)", async () => {
     process.env.GWEN_WEB_VERSION = "4.2.7";
-
+    mockFetch.mockReset();
     await expect(
       getDesiredVersion({
         ...configCustomRepo,
@@ -129,7 +133,7 @@ describe("getDesiredVersion", () => {
 
   it("should ignore the version specified in environment variables when using a SNAPSHOT (default repo)", async () => {
     process.env.GWEN_WEB_VERSION = "2.10.0";
-
+    mockFetch.mockReset();
     await expect(
       getDesiredVersion({
         ...configDefaultRepo,
@@ -140,7 +144,7 @@ describe("getDesiredVersion", () => {
 
   it("should ignore the version specified in environment variables when using a SNAPSHOT (custom repo)", async () => {
     process.env.GWEN_WEB_VERSION = "4.2.7";
-
+    mockFetch.mockReset();
     await expect(
       getDesiredVersion({
         ...configCustomRepo,
