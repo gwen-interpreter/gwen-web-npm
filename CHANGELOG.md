@@ -1,3 +1,7 @@
+v2.1.5
+======
+- Avoid making network calls to determine Gwen version to use if the specified version is sufficiently strict ([#147](https://github.com/gwen-interpreter/gwen-web-npm/pull/147), thanks @bjuric!)
+
 v2.1.4
 ======
 - Pull snapshot releases from the [new Sonatype Central](https://web.archive.org/web/20250521060328/https://central.sonatype.org/publish/publish-guide/) repo location ([#97](https://github.com/gwen-interpreter/gwen-web-npm/pull/97), thanks @bjuric!)
