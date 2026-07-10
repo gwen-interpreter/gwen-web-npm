@@ -28,7 +28,9 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Ensure npm is updated
-        run: npm install -g npm@latest
+        # Publishing with npm 12 is currently broken - see https://github.com/npm/cli/issues/9722
+        # Lock to 11.x for now until this is resolved
+        run: npm install -g npm@11
 
       - name: Install Node dependencies
         run: pnpm i --frozen-lockfile
