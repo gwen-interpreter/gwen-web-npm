@@ -3,6 +3,7 @@
     "target": "es2022",
     "module": "commonjs",
     "outDir": "./dist",
+    "rootDir": "./lib",
 
     "esModuleInterop": true,
     "noFallthroughCasesInSwitch": true,
