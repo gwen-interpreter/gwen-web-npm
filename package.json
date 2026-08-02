@@ -46,8 +46,8 @@
     "cachedir": "2.4.0",
     "cross-spawn": "7.0.6",
     "progress": "2.0.3",
-    "semver": "^7.6.3",
-    "url-join": "4.0.1",
+    "semver": "^7.8.5",
+    "url-join": "5.0.0",
     "xpath": "0.0.34"
   },
   "devDependencies": {
@@ -57,7 +57,6 @@
     "@types/jest": "30.0.0",
     "@types/progress": "2.0.7",
     "@types/semver": "^7.5.8",
-    "@types/url-join": "4.0.1",
     "husky": "^9.1.7",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10"
