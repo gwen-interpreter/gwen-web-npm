@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { promises as fs } from "node:fs";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import getDesiredVersion from "../lib/version";
 
 const mockFetch = vi.spyOn(global, "fetch");

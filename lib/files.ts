@@ -39,7 +39,7 @@ export async function fileExists(path: string): Promise<boolean> {
   try {
     await fsP.access(path, fs.constants.F_OK);
     return true;
-  } catch (e) {
+  } catch (_e) {
     return false;
   }
 }

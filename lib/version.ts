@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
+import { isNodeLike } from "@xmldom/is-dom-node";
+import { DOMParser } from "@xmldom/xmldom";
+import semverInc from "semver/functions/inc";
+import semverSatisfies from "semver/functions/satisfies";
 import semverMaxSatisfying from "semver/ranges/max-satisfying";
 import semverMinVersion from "semver/ranges/min-version";
-import semverSatisfies from "semver/functions/satisfies";
-import semverInc from "semver/functions/inc";
 import urljoin from "url-join";
-import { DOMParser } from "@xmldom/xmldom";
-import { isNodeLike } from "@xmldom/is-dom-node";
 import xpath from "xpath";
 import type { Config } from "./config";
 
@@ -75,7 +75,7 @@ async function getVersionInfo(config: Config): Promise<VersionInfo> {
       latestVersion,
       versions,
     };
-  } catch (e) {
+  } catch (_e) {
     throw new Error(
       `Failed to get Gwen-Web versions. Check your internet${
         config.mavenRepo.custom ? " or maven repo" : ""
