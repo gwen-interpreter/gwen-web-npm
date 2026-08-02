@@ -32,6 +32,13 @@
     "prepare": "husky install",
     "prepack": "pnpm build"
   },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": ">=11.0.0 <12.0.0",
+      "onFail": "download"
+    }
+  },
   "dependencies": {
     "@xmldom/is-dom-node": "^1.0.1",
     "@xmldom/xmldom": "0.9.10",
