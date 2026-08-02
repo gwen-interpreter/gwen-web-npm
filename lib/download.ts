@@ -19,11 +19,11 @@ import os from "node:os";
 import path from "node:path";
 import type { ReadableStream } from "node:stream/web";
 import cachedir from "cachedir";
-import decompress from "decompress";
 import Progress from "progress";
 import urljoin from "url-join";
 import type { Repo } from "./config";
 import { fileExists, getFileSha1 } from "./files";
+import AdmZip from "adm-zip";
 
 const storedVersionPath = cachedir("gwen-web");
 
@@ -134,7 +134,8 @@ async function extractZip(info: Result): Promise<Result> {
   console.log("Extracting...");
 
   try {
-    await decompress(info.zipPath, storedVersionPath);
+    const zip = new AdmZip(info.zipPath);
+    await zip.extractAllToAsync(storedVersionPath, false, true);
 
     return {
       status: "done",

@@ -42,9 +42,9 @@
   "dependencies": {
     "@xmldom/is-dom-node": "^1.0.1",
     "@xmldom/xmldom": "0.9.10",
+    "adm-zip": "^0.6.0",
     "cachedir": "2.4.0",
     "cross-spawn": "7.0.6",
-    "decompress": "4.2.1",
     "progress": "2.0.3",
     "semver": "^7.6.3",
     "url-join": "4.0.1",
