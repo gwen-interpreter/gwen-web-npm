@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-import type { ReadableStream } from "node:stream/web";
-import type { Repo } from "./config";
 import fs, { promises as fsP } from "node:fs";
-import path from "node:path";
 import os from "node:os";
+import path from "node:path";
+import type { ReadableStream } from "node:stream/web";
 import cachedir from "cachedir";
 import decompress from "decompress";
 import Progress from "progress";
 import urljoin from "url-join";
+import type { Repo } from "./config";
 import { fileExists, getFileSha1 } from "./files";
 
 const storedVersionPath = cachedir("gwen-web");
@@ -81,7 +81,10 @@ async function startDownload(
     const progress = new Progress("[:bar] :percent :elapseds", {
       width: 28,
       head: ">",
-      total: Number.parseInt(downloadRes.headers.get("content-length") ?? ""),
+      total: Number.parseInt(
+        downloadRes.headers.get("content-length") ?? "",
+        10,
+      ),
     });
 
     const outputStream = fs.createWriteStream(downloadLocation);
@@ -136,7 +139,7 @@ async function extractZip(info: Result): Promise<Result> {
     return {
       status: "done",
     };
-  } catch (e) {
+  } catch (_e) {
     return {
       status: "error",
       message: `Could not extract Gwen-Web to ${storedVersionPath}.`,

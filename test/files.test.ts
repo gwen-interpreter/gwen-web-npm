@@ -15,7 +15,7 @@
  */
 
 import { describe, expect, test } from "vitest";
-import { getFileSha1, fileExists } from "../lib/files";
+import { fileExists, getFileSha1 } from "../lib/files";
 
 const testFile = "./test/fixtures/maven-metadata.xml";
 

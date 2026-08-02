@@ -23,7 +23,7 @@ import { fileExists } from "./files";
 import getDesiredVersion from "./version";
 
 export function checkNodeVersion(version: string): boolean {
-  const majorVersion = Number.parseInt(version.split(".")[0]);
+  const majorVersion = Number.parseInt(version.split(".")[0], 10);
 
   return majorVersion >= 18;
 }
@@ -43,7 +43,7 @@ export async function run(): Promise<void> {
     const version = await getDesiredVersion(config);
     const gwenArgs = process.argv.splice(2);
 
-    const majorVersion = Number.parseInt(version.charAt(0));
+    const majorVersion = Number.parseInt(version.charAt(0), 10);
     if (gwenArgs.includes("init") && majorVersion < 3) {
       console.log(
         'The "init" command is only supported on Gwen-Web v3.0.0 and higher.',
