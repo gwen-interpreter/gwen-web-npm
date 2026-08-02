@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
+import { describe, expect, test } from "vitest";
 import { getFileSha1, fileExists } from "../lib/files";
 
 const testFile = "./test/fixtures/maven-metadata.xml";
 
 describe("getFileSha1", () => {
-  it("should return the correct SHA1 hash for files", async () => {
+  test("should return the correct SHA1 hash for files", async () => {
     await expect(getFileSha1(testFile)).resolves.toBe(
       "f9abbe687aab74b9cc130ace1ee07cc81a8c4db5",
     );
   });
 
-  it("should reject if the file cannot be read", async () => {
+  test("should reject if the file cannot be read", async () => {
     await expect(getFileSha1("bad path")).rejects.toThrow(
       "Could not get hash of file bad path",
     );
@@ -33,11 +34,11 @@ describe("getFileSha1", () => {
 });
 
 describe("fileExists", () => {
-  it("should return true when a file exists", async () => {
+  test("should return true when a file exists", async () => {
     await expect(fileExists(testFile)).resolves.toBe(true);
   });
 
-  it("should return false when a file does not exist", async () => {
+  test("should return false when a file does not exist", async () => {
     await expect(fileExists("bad path")).resolves.toBe(false);
   });
 });

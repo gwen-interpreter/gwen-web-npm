@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
+import { describe, expect, test } from "vitest";
 import { getConfig } from "../lib/config";
 
 describe("getConfig", () => {
-  it("should read config values from package.json", async () => {
+  test("should read config values from package.json", async () => {
     const config = await getConfig("./test/fixtures/package.json");
 
     expect(config.version).toBe("2.0.0");
@@ -28,7 +29,7 @@ describe("getConfig", () => {
     });
   });
 
-  it("should pick the correct defaults when none are specified", async () => {
+  test("should pick the correct defaults when none are specified", async () => {
     const config = await getConfig("./test/fixtures/blank-package.json");
 
     expect(config.version).toBe("latest");

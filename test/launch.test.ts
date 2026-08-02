@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
+import { describe, expect, test } from "vitest";
 import { checkNodeVersion } from "../lib/launch";
 
 describe("checkNodeVersion", () => {
-  it("should return true for Node 20", () => {
+  test("should return true for Node 20", () => {
     expect(checkNodeVersion("20.0.0")).toBe(true);
   });
 
-  it("should return true for Node 18", () => {
+  test("should return true for Node 18", () => {
     expect(checkNodeVersion("18.3.1")).toBe(true);
   });
 
-  it("should return false for Node 16", () => {
+  test("should return false for Node 16", () => {
     expect(checkNodeVersion("16.1.2")).toBe(false);
   });
 });

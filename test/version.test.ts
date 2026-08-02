@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-import { jest } from "@jest/globals";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { promises as fs } from "node:fs";
 import getDesiredVersion from "../lib/version";
 
-const mockFetch = jest.spyOn(global, "fetch");
+const mockFetch = vi.spyOn(global, "fetch");
 const metadataFixture = "./test/fixtures/maven-metadata.xml";
 
 const configDefaultRepo = {
@@ -37,8 +37,7 @@ describe("getDesiredVersion", () => {
   const origEnv = process.env;
 
   beforeEach(() => {
-    jest.resetModules();
-    jest.resetAllMocks();
+    vi.resetAllMocks();
 
     process.env = { ...origEnv };
 
@@ -51,7 +50,7 @@ describe("getDesiredVersion", () => {
     process.env = origEnv;
   });
 
-  it("should return the version specified in package.json (default repo)", async () => {
+  test("should return the version specified in package.json (default repo)", async () => {
     mockFetch.mockReset();
     await expect(
       getDesiredVersion({
@@ -61,7 +60,7 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("2.0.0");
   });
 
-  it("should return the version specified in package.json (custom repo)", async () => {
+  test("should return the version specified in package.json (custom repo)", async () => {
     mockFetch.mockReset();
     await expect(
       getDesiredVersion({
@@ -71,7 +70,7 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("2.1.0");
   });
 
-  it("should return the SNAPSHOT version specified in package.json (default repo)", async () => {
+  test("should return the SNAPSHOT version specified in package.json (default repo)", async () => {
     mockFetch.mockReset();
     await expect(
       getDesiredVersion({
@@ -81,7 +80,7 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("2.0.0-1-SNAPSHOT");
   });
 
-  it("should return the SNAPSHOT version specified in package.json (custom repo)", async () => {
+  test("should return the SNAPSHOT version specified in package.json (custom repo)", async () => {
     mockFetch.mockReset();
     await expect(
       getDesiredVersion({
@@ -91,7 +90,7 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("2.1.0-1-SNAPSHOT");
   });
 
-  it("should return the latest version matching specified semver range (default repo)", async () => {
+  test("should return the latest version matching specified semver range (default repo)", async () => {
     await expect(
       getDesiredVersion({
         ...configDefaultRepo,
@@ -100,7 +99,7 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("2.52.0");
   });
 
-  it("should return the latest version matching specified semver range (custom repo)", async () => {
+  test("should return the latest version matching specified semver range (custom repo)", async () => {
     await expect(
       getDesiredVersion({
         ...configCustomRepo,
@@ -109,7 +108,7 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("3.77.3");
   });
 
-  it("should return the version specified in environment variables (default repo)", async () => {
+  test("should return the version specified in environment variables (default repo)", async () => {
     process.env.GWEN_WEB_VERSION = "2.10.0";
     mockFetch.mockReset();
     await expect(
@@ -120,7 +119,7 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("2.10.0");
   });
 
-  it("should return the version specified in environment variables  (custom repo)", async () => {
+  test("should return the version specified in environment variables  (custom repo)", async () => {
     process.env.GWEN_WEB_VERSION = "4.2.7";
     mockFetch.mockReset();
     await expect(
@@ -131,7 +130,7 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("4.2.7");
   });
 
-  it("should ignore the version specified in environment variables when using a SNAPSHOT (default repo)", async () => {
+  test("should ignore the version specified in environment variables when using a SNAPSHOT (default repo)", async () => {
     process.env.GWEN_WEB_VERSION = "2.10.0";
     mockFetch.mockReset();
     await expect(
@@ -142,7 +141,7 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("2.0.0-1-SNAPSHOT");
   });
 
-  it("should ignore the version specified in environment variables when using a SNAPSHOT (custom repo)", async () => {
+  test("should ignore the version specified in environment variables when using a SNAPSHOT (custom repo)", async () => {
     process.env.GWEN_WEB_VERSION = "4.2.7";
     mockFetch.mockReset();
     await expect(
@@ -153,15 +152,15 @@ describe("getDesiredVersion", () => {
     ).resolves.toBe("4.2.7-1-SNAPSHOT");
   });
 
-  it("should return the latest version from the network (default repo)", async () => {
+  test("should return the latest version from the network (default repo)", async () => {
     await expect(getDesiredVersion(configDefaultRepo)).resolves.toBe("2.52.0");
   });
 
-  it("should return the latest version from the network (custom repo)", async () => {
+  test("should return the latest version from the network (custom repo)", async () => {
     await expect(getDesiredVersion(configCustomRepo)).resolves.toBe("2.52.0");
   });
 
-  it("should reject if the metadata is invalid (default repo)", async () => {
+  test("should reject if the metadata is invalid (default repo)", async () => {
     mockFetch.mockImplementationOnce(async () => new Response("bad response"));
 
     await expect(getDesiredVersion(configDefaultRepo)).rejects.toThrow(
@@ -169,7 +168,7 @@ describe("getDesiredVersion", () => {
     );
   });
 
-  it("should reject if the metadata is invalid (custom repo)", async () => {
+  test("should reject if the metadata is invalid (custom repo)", async () => {
     mockFetch.mockImplementationOnce(async () => new Response("bad response"));
 
     await expect(getDesiredVersion(configCustomRepo)).rejects.toThrow(
@@ -177,7 +176,7 @@ describe("getDesiredVersion", () => {
     );
   });
 
-  it("should reject if the metadata could not be fetched (default repo)", async () => {
+  test("should reject if the metadata could not be fetched (default repo)", async () => {
     mockFetch.mockImplementationOnce(
       async () => new Response("not found", { status: 404 }),
     );
@@ -187,7 +186,7 @@ describe("getDesiredVersion", () => {
     );
   });
 
-  it("should reject if the metadata could not be fetched (custom repo)", async () => {
+  test("should reject if the metadata could not be fetched (custom repo)", async () => {
     mockFetch.mockImplementationOnce(
       async () => new Response("not found", { status: 404 }),
     );
