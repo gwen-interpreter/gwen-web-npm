@@ -18,7 +18,7 @@ import path from "node:path";
 import cachedir from "cachedir";
 import spawn from "cross-spawn";
 import { getConfig } from "./config";
-import downloadGwenWeb from "./download";
+import { download, downloadDeps } from "./download";
 import { fileExists } from "./files";
 import getDesiredVersion from "./version";
 
@@ -59,10 +59,16 @@ export async function run(): Promise<void> {
     );
 
     if (!(await fileExists(pathToScript))) {
-      const repo = version.includes("SNAPSHOT")
-        ? config.mavenSnapshotRepo
-        : config.mavenRepo;
-      await downloadGwenWeb(version, repo);
+      const gwenArtifact = {
+        groupId: "org.gweninterpreter",
+        artifactId: "gwen-web",
+        version: version,
+        packaging: "zip",
+      };
+      console.log(`Downloading ${gwenArtifact.artifactId}-${version}...`);
+      await download(gwenArtifact, gwenArtifact, config);
+      await downloadDeps(gwenArtifact, config);
+      console.log(`Installed ${gwenArtifact.artifactId}-${version}`);
     }
 
     const result = spawn.sync(pathToScript, gwenArgs, {
