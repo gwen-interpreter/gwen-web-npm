@@ -24,6 +24,8 @@ import urljoin from "url-join";
 import type { Repo } from "./config";
 import { fileExists, getFileSha1 } from "./files";
 import AdmZip from "adm-zip";
+import type { Config } from "./config";
+import pLimit from "p-limit";
 
 const storedVersionPath = cachedir("gwen-web");
 
@@ -32,49 +34,63 @@ type DoneResult = {
 };
 type DownloadedResult = {
   status: "downloaded";
-  zipPath: string;
+  artifactPath: string;
+  deps?: MavenArtifact[];
 };
 type ErrorResult = {
   status: "error";
   message: string;
 };
 type Result = DoneResult | DownloadedResult | ErrorResult;
+type MavenArtifact = {
+  groupId: string;
+  artifactId: string;
+  version: string;
+  packaging: string;
+  sha1?: string;
+};
 
 async function startDownload(
-  version: string,
+  mavenArtifact: MavenArtifact,
   mavenRepo: Repo,
+  gwenArtifact: MavenArtifact,
 ): Promise<Result> {
-  if (await fileExists(path.join(storedVersionPath, `gwen-web-${version}`))) {
-    return {
-      status: "done",
-    };
-  }
-
-  console.log(`Downloading Gwen-Web v${version}...`);
+  const { groupId, artifactId, version, packaging } = mavenArtifact;
+  const artifactName = `${artifactId}-${version}`;
 
   try {
-    const downloadLocation = path.join(
-      await fsP.mkdtemp(path.join(os.tmpdir(), "gwen-web-")),
-      `gwen-web-${version}.zip`,
-    );
+    const isGwenZip = mavenArtifact === gwenArtifact;
+    const artifactFilename = `${artifactName}.${packaging}`;
+    const downloadLocation = isGwenZip
+      ? path.join(
+          await fsP.mkdtemp(path.join(os.tmpdir(), `${artifactId}-`)),
+          artifactFilename,
+        )
+      : path.join(
+          storedVersionPath,
+          `${gwenArtifact.artifactId}-${gwenArtifact.version}`,
+          "lib",
+          `${groupId}.${artifactFilename}`,
+        );
+
     const downloadRes = await fetch(
       urljoin(
         mavenRepo.url,
-        `/org/gweninterpreter/gwen-web/${version}/gwen-web-${version}.zip`,
+        `/${groupId.replaceAll(".", "/")}/${artifactId}/${version}/${artifactFilename}`,
       ),
     );
 
     if (downloadRes.status === 404) {
       return {
         status: "error",
-        message: `Gwen-Web v${version} doesn't exist. Check your version in package.json and try again.`,
+        message: `${artifactName} doesn't exist. Check your version and try again.`,
       };
     }
 
     if (!downloadRes.body) {
       return {
         status: "error",
-        message: "An unknown error occured while downloading Gwen-Web.",
+        message: `An unknown error occured while downloading ${artifactName}.`,
       };
     }
 
@@ -90,51 +106,62 @@ async function startDownload(
     const outputStream = fs.createWriteStream(downloadLocation);
 
     for await (const chunk of downloadRes.body as ReadableStream<Uint8Array>) {
-      progress.tick(chunk.length);
+      if (isGwenZip) {
+        progress.tick(chunk.length);
+      }
       outputStream.write(chunk);
     }
 
-    console.log("Validating downloaded archive hash...");
+    outputStream.on("finish", () => {
+      outputStream.close();
+    });
+
+    await fileExists(downloadLocation);
     const sha1 = await getFileSha1(downloadLocation);
-    if (sha1 !== downloadRes.headers.get("x-checksum-sha1")) {
-      const etagSum = (downloadRes.headers.get("etag") ?? "").match(
-        /{SHA1{(.*)}}/,
-      );
-      if (etagSum && sha1 !== etagSum[1]) {
-        return {
-          status: "error",
-          message:
-            "Failed hash validation! Maybe there was an Internet connection issue. Trying again may resolve the problem.",
-        };
+    if (isGwenZip) {
+      if (sha1 !== downloadRes.headers.get("x-checksum-sha1")) {
+        const etagSum = (downloadRes.headers.get("etag") ?? "").match(
+          /{SHA1{(.*)}}/,
+        );
+        if (etagSum && sha1 !== etagSum[1]) {
+          return {
+            status: "error",
+            message: `Failed hash validation for ${artifactName}! Maybe there was an Internet connection issue. Trying again may resolve the problem.`,
+          };
+        }
       }
+    } else if (sha1 !== mavenArtifact.sha1) {
+      return {
+        status: "error",
+        message: `Failed hash validation for ${artifactName}! Hash mismatch detected. Try again or resolve dependency problem.`,
+      };
     }
 
     return {
       status: "downloaded",
-      zipPath: downloadLocation,
+      artifactPath: downloadLocation,
     };
   } catch (e) {
     if (e instanceof TypeError) {
       return {
         status: "error",
-        message: `Failed downloading Gwen-Web v${version}. Check your internet${
+        message: `Failed downloading ${artifactName}. Check your internet${
           mavenRepo.custom ? " or maven repo" : ""
         } connection and try again.`,
       };
     }
     return {
       status: "error",
-      message: "An unknown error occured while downloading Gwen-Web.",
+      message: `An unknown error occured while downloading ${artifactName}.`,
     };
   }
 }
 
 async function extractZip(info: Result): Promise<Result> {
   if (info.status !== "downloaded") return info;
-  console.log("Extracting...");
 
   try {
-    const zip = new AdmZip(info.zipPath);
+    const zip = new AdmZip(info.artifactPath);
     await zip.extractAllToAsync(storedVersionPath, false, true);
 
     return {
@@ -148,22 +175,64 @@ async function extractZip(info: Result): Promise<Result> {
   }
 }
 
-function handleError(result: Result): void {
+function handleError(result: Result, gwenArtifact: MavenArtifact): void {
   if (result.status === "error") {
     console.log(result.message);
+    const pathToPackage = path.join(
+      storedVersionPath,
+      `${gwenArtifact.artifactId}-${gwenArtifact.version}`,
+    );
+    fs.rmSync(pathToPackage, { recursive: true, force: true });
     process.exit(1);
   }
 }
 
-export default async function download(
-  version: string,
-  mavenRepo: Repo,
+export async function download(
+  mavenArtifact: MavenArtifact,
+  gwenArtifact: MavenArtifact,
+  config: Config,
 ): Promise<void> {
-  const dlResult = await startDownload(version, mavenRepo);
-  handleError(dlResult);
+  const mavenRepo = mavenArtifact.version.includes("SNAPSHOT")
+    ? config.mavenSnapshotRepo
+    : config.mavenRepo;
 
-  const extractResult = await extractZip(dlResult);
-  handleError(extractResult);
+  const dlResult = await startDownload(mavenArtifact, mavenRepo, gwenArtifact);
+  handleError(dlResult, gwenArtifact);
 
-  console.log(`Downloaded Gwen-Web v${version}`);
+  if (mavenArtifact === gwenArtifact) {
+    const extractResult = await extractZip(dlResult);
+    handleError(extractResult, gwenArtifact);
+  }
+}
+
+export async function downloadDeps(
+  gwenArtifact: MavenArtifact,
+  config: Config,
+): Promise<void> {
+  const dependenciesJson = path.join(
+    storedVersionPath,
+    `${gwenArtifact.artifactId}-${gwenArtifact.version}`,
+    "DEPENDENCIES.json",
+  );
+  if (await fileExists(dependenciesJson)) {
+    const jsonContent = fs.readFileSync(dependenciesJson, "utf-8");
+    const deps = JSON.parse(jsonContent);
+    if (deps.length > 0) {
+      console.log(`Downloading dependencies...`);
+      const progress = new Progress("[:bar] :percent :elapseds", {
+        width: 28,
+        head: ">",
+        total: deps.length,
+      });
+      const limit = pLimit(10);
+      const downloads = deps.map((depArtifact: MavenArtifact) =>
+        limit(() =>
+          download(depArtifact, gwenArtifact, config).then(() =>
+            progress.tick(1),
+          ),
+        ),
+      );
+      await Promise.all(downloads);
+    }
+  }
 }
