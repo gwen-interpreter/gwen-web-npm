@@ -1,3 +1,9 @@
+v2.2.0
+======
+- Support new "thin zip" packaging format for future Gwen releases ([#152](https://github.com/gwen-interpreter/gwen-web-npm/pull/152), thanks @bjuric!)
+- Replace `decompress` with `adm-zip` for extracting ZIP files
+- Miscellaneous dependency updates
+
 v2.1.5
 ======
 - Avoid making network calls to determine Gwen version to use if the specified version is sufficiently strict ([#147](https://github.com/gwen-interpreter/gwen-web-npm/pull/147), thanks @bjuric!)
