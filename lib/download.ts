@@ -112,6 +112,7 @@ async function startDownload(
       outputStream.write(chunk);
     }
 
+    outputStream.end();
     outputStream.on("finish", () => {
       outputStream.close();
     });
