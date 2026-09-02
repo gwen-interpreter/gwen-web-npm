@@ -1,3 +1,7 @@
+v2.2.1
+======
+- Fix dependency downloads sometimes not being completely written to disk ([#153](https://github.com/gwen-interpreter/gwen-web-npm/pull/153), thanks @bjuric!)
+
 v2.2.0
 ======
 - Support new "thin zip" packaging format for future Gwen releases ([#152](https://github.com/gwen-interpreter/gwen-web-npm/pull/152), thanks @bjuric!)
