@@ -118,7 +118,7 @@ async function startDownload(
     });
 
     await fileExists(downloadLocation);
-    const sha1 = await getFileSha1(downloadLocation);
+    const sha1 = await calculateFileSha1(downloadLocation);
     if (isGwenZip) {
       if (sha1 !== downloadRes.headers.get("x-checksum-sha1")) {
         const etagSum = (downloadRes.headers.get("etag") ?? "").match(
@@ -155,6 +155,16 @@ async function startDownload(
       status: "error",
       message: `An unknown error occured while downloading ${artifactName}.`,
     };
+  }
+}
+
+async function calculateFileSha1(path: string, prevSha1?: string, tries = 1) {
+  const sha1 = await getFileSha1(path);
+  if (sha1 === prevSha1 || tries === 10)
+    return sha1; // return on consecutive match or 10th attempt
+  else {
+    if (tries > 1) await new Promise((r) => setTimeout(r, 1000)); // wait 1 sec and try again
+    return calculateFileSha1(path, sha1, tries + 1);
   }
 }
 
