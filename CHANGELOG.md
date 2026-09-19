@@ -1,3 +1,7 @@
+v2.2.2
+======
+- Retry hash check a few times to prevent issues with downloaded files not being fully flushed ([#154](https://github.com/gwen-interpreter/gwen-web-npm/pull/154), thanks @bjuric!)
+
 v2.2.1
 ======
 - Fix dependency downloads sometimes not being completely written to disk ([#153](https://github.com/gwen-interpreter/gwen-web-npm/pull/153), thanks @bjuric!)
