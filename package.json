@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@xmldom/is-dom-node": "^1.0.1",
-    "@xmldom/xmldom": "0.9.10",
+    "@xmldom/xmldom": "0.9.12",
     "adm-zip": "^0.6.0",
     "cachedir": "2.4.0",
     "cross-spawn": "7.0.6",
