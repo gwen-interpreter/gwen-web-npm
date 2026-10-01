@@ -215,7 +215,7 @@ importers:
         version: 0.9.10
       adm-zip:
         specifier: ^0.6.0
-        version: 0.6.0
+        version: 0.6.1
       cachedir:
         specifier: 2.4.0
         version: 2.4.0
@@ -688,8 +688,8 @@ packages:
     engines: {node: '>=14.6'}
     deprecated: this version has critical issues, please update to the latest version
 
-  adm-zip@0.6.0:
-    resolution: {integrity: sha512-XleryMhbuksdKtofnWZ9Sk+4CUTbms4Mb/EU32SZwToAyZ5RgVos/ki8n+yr0LWHOGKuakbXTuuYNHLQjhddgg==}
+  adm-zip@0.6.1:
+    resolution: {integrity: sha512-Xwrja8nx9e5o2N1my4DsKCeKpdrnACyr1wtbPxBDgGzKzKyE9kRtBFA8mWldI+RVlD7CBZNWY/wQ2+ydwOR6kQ==}
     engines: {node: '>=14.0'}
 
   ansi-styles@4.3.0:
@@ -1423,7 +1423,7 @@ snapshots:
 
   '@xmldom/xmldom@0.9.10': {}
 
-  adm-zip@0.6.0: {}
+  adm-zip@0.6.1: {}
 
   ansi-styles@4.3.0:
     dependencies:
